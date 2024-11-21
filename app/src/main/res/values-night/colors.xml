@@ -2,33 +2,28 @@
 <resources>
     <!-- Primary Colors -->
     <color name="colorPrimary">#113D56</color>
-    <color name="colorPrimaryVariant">#0D2A3E</color>
-    <color name="colorPrimaryDark">#0D2A3E</color>
+    <color name="colorPrimaryVariant">#0D2A3E</color> <!-- Darker teal variant -->
+    <color name="colorPrimaryDark">#0D2A3E</color> <!-- Dark teal for status bar -->
 
     <!-- Secondary Colors -->
     <color name="colorSecondary">#4D7F8F</color>
-    <color name="colorSecondaryVariant">#3A6372</color>
+    <color name="colorSecondaryVariant">#3A6372</color> <!-- Darker blueish variant -->
 
     <!-- Background Colors -->
-    <color name="colorBackground">#0B2832</color>
+    <color name="colorBackground">#113D56</color> <!-- Dark background color -->
 
     <!-- Surface Colors -->
-    <color name="colorSurface">#252525</color>
-    <color name="colorOnSurface">#D0F1F8</color>
+    <color name="colorSurface">#1A1A1A</color> <!-- Dark gray for cards/panels -->
+    <color name="colorOnSurface">#D0F1F8</color> <!-- Light text on surface -->
 
     <!-- Accent Color -->
     <color name="colorAccent">#B4DCE4</color>
 
     <!-- Status Bar Color -->
-    <color name="statusBarColor">#0D2A3E</color>
+    <color name="statusBarColor">#0D2A3E</color> <!-- Even darker variant of primary for status bar -->
 
     <!-- Text Colors -->
-    <color name="colorOnPrimary">#D0F1F8</color>
-    <color name="colorOnBackground">#D0F1F8</color>
-    <color name="colorOnSecondary">#D0F1F8</color>
-
-    <!-- <color name="bottom_nav_background_dark">#121212</color>
-    <color name="nav_item_color_dark">#FFFFFF</color>
-    <color name="bottom_nav_item_selected">#FF4081</color> -->
-
+    <color name="colorOnPrimary">#D0F1F8</color> <!-- Light text on dark primary -->
+    <color name="colorOnBackground">#D0F1F8</color> <!-- Light text on dark background -->
+    <color name="colorOnSecondary">#D0F1F8</color> <!-- Light text on dark secondary -->
 </resources>

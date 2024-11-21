@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".view.auth.register.RegisterActivity">
+    tools:context=".ui.RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"

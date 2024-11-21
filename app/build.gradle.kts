@@ -1,8 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
-    //id("com.google.gms.google-services") version "4.4.2"
 }
 
 android {
@@ -37,8 +35,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        //noinspection DataBindingWithoutKapt
-        dataBinding = true
     }
 }
 
@@ -54,8 +50,6 @@ dependencies {
     implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.activity)
-    implementation(libs.firebase.auth)
-    implementation(libs.generativeai)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -65,30 +59,4 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
 
     implementation(libs.androidx.cardview)
-    implementation(libs.androidx.viewpager2)
-
-    implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
-    implementation(libs.firebase.analytics)
-    implementation(libs.play.services.auth)
-    implementation (libs.firebase.auth)
-    implementation (libs.firebase.core)
-
-    implementation(libs.androidx.credentials)
-    implementation(libs.androidx.credentials.play.services.auth)
-    implementation(libs.googleid)
-    implementation(libs.play.services.identity.v1700)
-
-    implementation(libs.androidx.datastore.preferences)
-    implementation(libs.androidx.datastore.core)
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.logging.interceptor)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.glide)
-    annotationProcessor(libs.compiler)
-    implementation(libs.gson)
-
-    implementation (libs.androidx.room.runtime)
-    kapt (libs.androidx.room.compiler)
-    implementation (libs.androidx.room.ktx)
 }
