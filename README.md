@@ -71,4 +71,3 @@ Our team drew inspiration from our own experiences and those of relatives facing
 ## Conclusion
 
 This project aims to bridge the gap between high school students' interests and informed decision-making. Through advanced assessments and tailored recommendations, we envision equipping students with the tools and insights necessary to pursue fulfilling academic and career paths.
-```
