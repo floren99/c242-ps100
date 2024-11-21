@@ -1,5 +1,4 @@
-# College Major Recommendation Platform
-
+# Match My Major
 ## Bangkit Team Information
 - **Team ID:** C242-PS100  
 - **Team Members:**
