@@ -1,4 +1,4 @@
-    const getAllData = require('./getAllQuestion');
+    const getAllQuestion = require('./getAllQuestion');
 
     const getRandomQuestion = async (request, h) => {
     try {

@@ -1,6 +1,11 @@
 const Hapi = require('@hapi/hapi');
 const questionRoutes = require('./routes/questionRoutes');
 
+const admin = require('firebase-admin');
+admin.initializeApp({
+  credential: admin.credential.applicationDefault(), // Ensure correct permissions for your environment
+});
+
 const init = async () => {
   const server = Hapi.server({
     port: 9000,
