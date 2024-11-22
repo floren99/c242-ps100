@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@android:color/white" /> <!-- Set solid white color -->
+    <corners android:radius="25dp" /> <!-- Make it circular by setting radius -->
+    <opacity android:alpha="153" /> <!-- Set alpha to make it semi-transparent (0-255, 255 is opaque) -->
+</shape>

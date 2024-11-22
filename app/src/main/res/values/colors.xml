@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="gray">#A4A4A4</color>
+
+    <!-- Light -->
+    <!-- Primary Colors -->
+    <color name="colorPrimary">#0DA0AA</color>
+    <color name="colorPrimaryVariant">#0B7A83</color> <!-- Slightly darker teal variant -->
+    <color name="colorPrimaryDark">#113D56</color> <!-- Dark teal for status bar -->
+
+    <!-- Secondary Colors -->
+    <color name="colorSecondary">#B4DCE4</color>
+    <color name="colorSecondaryVariant">#A1C8D1</color> <!-- Slightly darker green variant -->
+
+    <!-- Background Colors -->
+    <color name="colorBackground">#D0F1F8</color> <!-- Very light teal background -->
+
+    <!-- Surface Colors -->
+    <color name="colorSurface">#FFFFFF</color> <!-- White or light for cards/panels -->
+    <color name="colorOnSurface">#113D56</color> <!-- Dark text on surface -->
+
+    <!-- Accent Color -->
+    <color name="colorAccent">#4D7F8F</color>
+
+    <!-- Status Bar Color -->
+    <color name="statusBarColor">#0B7A83</color> <!-- Darker than colorPrimary for the status bar -->
+
+    <!-- Text Colors -->
+    <color name="colorOnPrimary">#1A1A1A</color> <!-- White text on primary -->
+    <color name="colorOnBackground">#113D56</color> <!-- Dark text on background -->
+    <color name="colorOnSecondary">#113D56</color> <!-- Dark text on secondary -->
+
+    <!-- Answered and Not Answered Colors -->
+    <color name="colorAnswered">#4CAF50</color> <!-- Green for answered -->
+    <color name="colorNotAnswered">#929292</color> <!-- Grey for not answered -->
+</resources>
