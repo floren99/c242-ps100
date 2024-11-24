@@ -1,9 +1,9 @@
-const predictMajor = require("../services/inferenceService");
+const MLService = require("../services/MLService");
 const storePredict = require("../services/storePredict");
 const getAllPredict = require("../services/getAllPredict");
-const admin = require("firebase-admin");
+const admin = require("../services/firebaseAdmin");
 
-async function postPredictHandler(request, h) {
+async function postPredictHandler(request, h) { // Need fixing (wait for api ML to be done)
   try {
     const { answer } = request.payload;
     const { model } = request.server.app;

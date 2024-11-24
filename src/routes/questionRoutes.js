@@ -1,15 +1,13 @@
-const Hapi = require('@hapi/hapi');
-const { getRandomQuestion } = require('../handler/questionControllerHandler');
+const { getRandomQuestion } = require("../handler/questionControllerHandler");
 
 const questionRoutes = [
   {
-    method: 'GET',
-    path: '/questions',
+    method: "GET",
+    path: "/questions",
     handler: getRandomQuestion,
     options: {
-      description: 'Get a random question',
-      notes: 'Returns a random question for the prediction test',
-      tags: ['api', 'questions'],
+      description: "Get a random question",
+      notes: "Returns a random question for the prediction test",
     },
   },
 ];

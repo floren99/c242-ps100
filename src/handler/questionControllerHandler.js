@@ -13,7 +13,6 @@
         question_id: randomQuestion.id,
         question_text: randomQuestion.question_text,
         options: randomQuestion.options,
-        //   image_url: randomQuestion.image_url  // If the question has an associated image URL
         }).code(200);
 
     } catch (error) {
