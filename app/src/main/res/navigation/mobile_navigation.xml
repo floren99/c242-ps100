@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.mcaps.mmm.view.dashboard.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_career"
+        android:name="com.mcaps.mmm.view.dashboard.career.CareerFragment"
+        android:label="@string/title_career"
+        tools:layout="@layout/fragment_career" />
+
+    <fragment
+        android:id="@+id/navigation_path"
+        android:name="com.mcaps.mmm.view.dashboard.path.PathFragment"
+        android:label="@string/title_path"
+        tools:layout="@layout/fragment_path" />
+
+    <fragment
+        android:id="@+id/navigation_discussion"
+        android:name="com.mcaps.mmm.view.dashboard.discussion.DiscussionFragment"
+        android:label="Menu"
+        tools:layout="@layout/fragment_path" />
+</navigation>

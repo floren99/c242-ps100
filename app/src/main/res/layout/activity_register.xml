@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".view.auth.register.RegisterActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username :"
+        android:fontFamily="monospace"
+        android:layout_gravity="left"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editUsernameReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="text"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:hint="Username"
+        android:textColorHint="@color/teal_700"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email :"
+        android:fontFamily="monospace"
+        android:layout_gravity="left"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editEmailReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:hint="Example@gmail.com"
+        android:textColorHint="@color/teal_700"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password :"
+        android:fontFamily="monospace"
+        android:layout_gravity="left"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editPassReg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="text"
+        android:fontFamily="monospace"
+        android:textSize="16sp"
+        android:hint="Password (8-12 Character)"
+        android:textColorHint="@color/teal_700"/>
+
+    <Button
+        android:id="@+id/regBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"/>
+</LinearLayout>
