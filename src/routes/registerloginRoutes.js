@@ -11,7 +11,7 @@ const registerloginRoutes = [
       validate: {
         payload: {
           email: Joi.string().email().required().description("User email"),
-          password: Joi.string().min(6).required().description("User password"), //password minimal 6
+          password: Joi.string().min(8).required().description("User password"), //password minimal 6
         },
       },
     },

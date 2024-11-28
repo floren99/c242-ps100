@@ -1,24 +1,28 @@
-    const getAllQuestion = require('./getAllQuestion');
+const getAllQuestion = require("./getAllQuestion");
 
-    const getRandomQuestion = async (request, h) => {
-    try {
-        // Call getAllData to fetch data from the 'questions' collection
-        const questionList = await getAllQuestion('questions');
+const getRandomQuestions = async (request, h) => {
+  try {
+    // Fetch all questions
+    const questionList = await getAllQuestion("questions");
 
-        // Select a random question from the list
-        const randomQuestion = questionList[Math.floor(Math.random() * questionList.length)];
+    // Shuffle and select 10 random questions
+    const shuffled = questionList.sort(() => 0.5 - Math.random());
+    const randomQuestions = shuffled.slice(0, 10);
 
-        // Return the random question as the response
-        return h.response({
-        question_id: randomQuestion.id,
-        question_text: randomQuestion.question_text,
-        options: randomQuestion.options,
-        }).code(200);
+    // Return the 10 random questions
+    return h
+      .response({
+        questions: randomQuestions.map((question) => ({
+          question_id: question.id,
+          question_text: question.question_text,
+          options: question.options,
+        })),
+      })
+      .code(200);
+  } catch (error) {
+    console.error("Error fetching random questions:", error);
+    return h.response({ error: "Failed to fetch questions" }).code(500);
+  }
+};
 
-    } catch (error) {
-        console.error('Error fetching random question:', error);
-        return h.response({ error: 'Failed to fetch question' }).code(500);
-    }
-    };
-
-    module.exports = { getRandomQuestion };
+module.exports = { getRandomQuestions };
