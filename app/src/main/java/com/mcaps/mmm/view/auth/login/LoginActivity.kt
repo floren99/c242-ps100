@@ -54,6 +54,8 @@ class LoginActivity : AppCompatActivity() {
         val ivPass = ObjectAnimator.ofFloat(binding.edLoginPassword, View.ALPHA, 1f).setDuration(300)
         val lPass = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(300)
         val login = ObjectAnimator.ofFloat(binding.loginButton, View.ALPHA, 1f).setDuration(300)
+        val signup = ObjectAnimator.ofFloat(binding.tvSignup, View.ALPHA, 1f).setDuration(300)
+        val tvDontHaveAccount = ObjectAnimator.ofFloat(binding.tvDontHaveAccount, View.ALPHA, 1f).setDuration(300)
 
         val email = AnimatorSet().apply {
             playTogether(tvEmail, ivEmail, lEmail)
@@ -61,9 +63,12 @@ class LoginActivity : AppCompatActivity() {
         val pass = AnimatorSet().apply {
             playTogether(tvPass, ivPass, lPass)
         }
+        val reg = AnimatorSet().apply {
+            playTogether(tvDontHaveAccount, signup)
+        }
 
         AnimatorSet().apply {
-            playSequentially(email, pass, login)
+            playSequentially(email, pass, login, reg)
             startDelay = 200
             start()
         }

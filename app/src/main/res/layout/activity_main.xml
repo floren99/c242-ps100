@@ -44,15 +44,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:backgroundTint="@color/colorPrimary" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="@string/fab_desc"
-        android:src="@drawable/ic_baseline_logout_24"
-        app:layout_constraintBottom_toTopOf="@id/question"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/colorPrimary" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

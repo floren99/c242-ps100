@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.mcaps.mmm.R
 import com.mcaps.mmm.data.pref.SettingPreferences
-import com.mcaps.mmm.data.pref.dataStore
+import com.mcaps.mmm.data.pref.themeDataStore
 import com.mcaps.mmm.view.MainViewModel
 import com.mcaps.mmm.view.ViewModelFactory
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -27,7 +27,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        val pref = SettingPreferences.getInstance(this.dataStore)
+        val pref = SettingPreferences.getInstance(this.themeDataStore)
         mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
 
         val switchTheme = findViewById<SwitchMaterial>(R.id.theme_switch)

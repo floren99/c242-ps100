@@ -31,9 +31,6 @@
             android:name=".view.question.QuestionActivity"
             android:exported="false" />
         <activity
-            android:name=".view.auth.register.RegisterActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.welcome.SplashActivity"
             android:exported="false" />
         <activity

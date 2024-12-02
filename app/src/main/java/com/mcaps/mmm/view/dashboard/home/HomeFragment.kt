@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.mcaps.mmm.databinding.FragmentHomeBinding
+import com.mcaps.mmm.view.auth.login.LoginActivity
 import com.mcaps.mmm.view.menu.MenuActivity
 import com.mcaps.mmm.view.question.QuestionActivity
 
@@ -24,6 +25,10 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.menuButton.setOnClickListener{
             val intent = Intent(activity, MenuActivity::class.java)
+            startActivity(intent)
+        }
+        binding.signupHome.setOnClickListener {
+            val intent = Intent(activity, LoginActivity::class.java)
             startActivity(intent)
         }
         return binding.root
