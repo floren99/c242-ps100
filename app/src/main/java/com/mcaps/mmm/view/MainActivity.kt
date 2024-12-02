@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> viewPager.setCurrentItem(0, true)
-                R.id.navigation_career -> viewPager.setCurrentItem(1, true)
+                R.id.navigation_test -> viewPager.setCurrentItem(1, true)
                 R.id.navigation_path -> viewPager.setCurrentItem(2, true)
                 R.id.navigation_discussion -> viewPager.setCurrentItem(3, true)
             }

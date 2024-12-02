@@ -7,9 +7,9 @@
         android:itemBackground="@drawable/icon_background_selector"/> <!-- Apply the background selector here -->
 
     <item
-        android:id="@+id/navigation_career"
+        android:id="@+id/navigation_test"
         android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_career"
+        android:title="@string/title_test"
         android:itemBackground="@drawable/icon_background_selector"/>
 
     <item

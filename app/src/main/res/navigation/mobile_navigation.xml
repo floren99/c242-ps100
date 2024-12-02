@@ -12,10 +12,10 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_career"
-        android:name="com.mcaps.mmm.view.dashboard.career.CareerFragment"
+        android:id="@+id/navigation_test"
+        android:name="com.mcaps.mmm.view.dashboard.test.TestFragment"
         android:label="@string/title_career"
-        tools:layout="@layout/fragment_career" />
+        tools:layout="@layout/fragment_test" />
 
     <fragment
         android:id="@+id/navigation_path"

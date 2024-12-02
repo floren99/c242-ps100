@@ -9,6 +9,7 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.mcaps.mmm.databinding.ActivityLoginBinding
+import com.mcaps.mmm.view.auth.register.RegisterFragment
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -19,6 +20,11 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupView()
         playAnimation()
+
+        binding.tvSignup.setOnClickListener{
+            val dialogFragment = RegisterFragment()
+            dialogFragment.show(supportFragmentManager, "register")
+        }
     }
 
     private fun setupView() {
