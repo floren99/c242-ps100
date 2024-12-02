@@ -1,6 +1,6 @@
 const { registerUser, loginUser } = require("../handler/authControllerHandler");
 
-const registerloginRoutes = [
+const routes = [
   {
     method: "POST",
     path: "/register",
@@ -8,12 +8,6 @@ const registerloginRoutes = [
     options: {
       description: "Register a new user",
       notes: "Creates a new user using Firebase Authentication with userId output",
-      validate: {
-        payload: {
-          email: Joi.string().email().required().description("User email"),
-          password: Joi.string().min(8).required().description("User password"), //password minimal 6
-        },
-      },
     },
   },
   {
@@ -22,14 +16,9 @@ const registerloginRoutes = [
     handler: loginUser,
     options: {
       description: "Login a user",
-      notes: "Verifies a Firebase Authentication ID Token",
-      validate: {
-        payload: {
-          idToken: Joi.string().required().description("Firebase ID Token"),
-        },
-      },
+      notes: "Verifies a Firebase Authentication ID Token", 
     },
   },
 ];
 
-module.exports = registerloginRoutes;
+module.exports = routes;
