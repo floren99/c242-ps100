@@ -12,6 +12,7 @@ import com.mcaps.mmm.databinding.ActivityMainBinding
 import com.mcaps.mmm.view.auth.login.LoginActivity
 import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.dataStore
+import com.mcaps.mmm.view.chatbot.ChatbotActivity
 import com.mcaps.mmm.view.question.QuestionActivity
 
 class MainActivity : AppCompatActivity() {
@@ -64,7 +65,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
+        binding.chatbot.setOnClickListener {
+            val intent = Intent(this, ChatbotActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.question.setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java)

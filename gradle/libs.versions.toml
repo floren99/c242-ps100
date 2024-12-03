@@ -8,6 +8,7 @@ firebaseCore = "21.1.1"
 glide = "4.15.1"
 googlePlayServicesAuth = "20.0.0"
 googleid = "1.2.2"
+gson = "2.10.1"
 kotlin = "1.9.0"
 coreKtx = "1.15.0"
 junit = "4.13.2"
@@ -34,6 +35,7 @@ retrofit = "2.9.0"
 viewpager2 = "1.1.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.1.0"
+generativeai = "0.9.0"
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -42,6 +44,7 @@ androidx-credentials = { module = "androidx.credentials:credentials", version.re
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
 androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastorePreferences" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 firebase-core = { module = "com.google.firebase:firebase-core", version.ref = "firebaseCore" }
 glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
@@ -49,6 +52,7 @@ googleid = { module = "com.google.android.libraries.identity.googleid:googleid",
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferences" }
 androidx-viewpager2 = { module = "androidx.viewpager2:viewpager2", version.ref = "viewpager2" }
 firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -72,6 +76,7 @@ play-services-auth-v2070 = { module = "com.google.android.gms:play-services-auth
 play-services-identity = { module = "com.google.android.gms:play-services-identity", version.ref = "playServicesIdentity" }
 play-services-identity-v1700 = { module = "com.google.android.gms:play-services-identity", version.ref = "playServicesIdentityVersion" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
