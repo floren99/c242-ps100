@@ -32,7 +32,7 @@ interface ApiService {
     ): LoginResponse
 
     @GET("questions")
-    fun getPrefQuestion(): QuestionPrefResponse
+    suspend fun getPrefQuestion(): QuestionPrefResponse
 
     @GET("major")
     fun getAllMajor(): Call<List<MajorResponse>>

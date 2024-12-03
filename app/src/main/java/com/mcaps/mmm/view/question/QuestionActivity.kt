@@ -26,9 +26,7 @@ class QuestionActivity : AppCompatActivity() {
             transaction.commit()
         }
 
-        // Button "Login" action
         binding.btnLogin.setOnClickListener {
-            // Navigate to LoginActivity when "Login" button is clicked
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
