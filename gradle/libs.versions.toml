@@ -72,6 +72,7 @@ play-services-auth-v2070 = { module = "com.google.android.gms:play-services-auth
 play-services-identity = { module = "com.google.android.gms:play-services-identity", version.ref = "playServicesIdentity" }
 play-services-identity-v1700 = { module = "com.google.android.gms:play-services-identity", version.ref = "playServicesIdentityVersion" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

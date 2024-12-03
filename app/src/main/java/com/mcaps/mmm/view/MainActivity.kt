@@ -13,6 +13,7 @@ import com.mcaps.mmm.view.auth.login.LoginActivity
 import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.dataStore
 import com.mcaps.mmm.view.question.QuestionActivity
+import com.mcaps.mmm.view.chatbot.ChatbotActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,10 +65,18 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-
-
         binding.question.setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.login.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+        // Add new FloatingActionButton for Chatbot
+        binding.chatbot.setOnClickListener {
+            val intent = Intent(this, ChatbotActivity::class.java)
             startActivity(intent)
         }
     }
