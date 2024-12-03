@@ -29,6 +29,7 @@ playServicesIdentityVersion = "17.0.0"
 viewpager2 = "1.1.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.1.0"
+generativeai = "0.9.0"
 
 [libraries]
 androidx-cardview = { module = "androidx.cardview:cardview", version.ref = "cardview" }
@@ -61,6 +62,7 @@ play-services-auth-v2000 = { module = "com.google.android.gms:play-services-auth
 play-services-auth-v2070 = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuthVersion" }
 play-services-identity = { module = "com.google.android.gms:play-services-identity", version.ref = "playServicesIdentity" }
 play-services-identity-v1700 = { module = "com.google.android.gms:play-services-identity", version.ref = "playServicesIdentityVersion" }
+generativeai = { group = "com.google.ai.client.generativeai", name = "generativeai", version.ref = "generativeai" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

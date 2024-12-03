@@ -54,6 +54,7 @@ dependencies {
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.activity)
     implementation(libs.firebase.auth)
+    implementation(libs.generativeai)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -68,11 +69,15 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:33.6.0"))
     implementation(libs.firebase.analytics)
     implementation(libs.play.services.auth)
-    implementation (libs.firebase.auth)
-    implementation (libs.firebase.core)
+    implementation(libs.firebase.auth)
+    implementation(libs.firebase.core)
 
     implementation(libs.androidx.credentials)
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation(libs.play.services.identity.v1700)
+
+    implementation("com.github.bumptech.glide:glide:4.15.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+    implementation("com.google.code.gson:gson:2.8.9")
 }
