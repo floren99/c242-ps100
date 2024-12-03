@@ -64,6 +64,8 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
+
         binding.question.setOnClickListener {
             val intent = Intent(this, QuestionActivity::class.java)
             startActivity(intent)

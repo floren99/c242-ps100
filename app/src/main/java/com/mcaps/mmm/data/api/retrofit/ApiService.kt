@@ -1,6 +1,8 @@
 package com.mcaps.mmm.data.api.retrofit
 
 import com.mcaps.mmm.data.api.response.LoginResponse
+import com.mcaps.mmm.data.api.response.MajorResponse
+import com.mcaps.mmm.data.api.response.QuestionPrefResponse
 import com.mcaps.mmm.data.api.response.RegisterResponse
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -28,4 +30,10 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") password: String
     ): LoginResponse
+
+    @GET("questions")
+    fun getPrefQuestion(): QuestionPrefResponse
+
+    @GET("major")
+    fun getAllMajor(): Call<List<MajorResponse>>
 }

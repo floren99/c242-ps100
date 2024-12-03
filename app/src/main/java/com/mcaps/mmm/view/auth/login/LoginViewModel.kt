@@ -3,6 +3,7 @@ package com.mcaps.mmm.view.auth.login
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.mcaps.mmm.data.api.response.LoginResponse
 import com.mcaps.mmm.data.pref.UserModel
@@ -23,8 +24,8 @@ class LoginViewModel(private val apiRepository: ApiUserRepository, private val r
     private val _isSessionSaved = MutableLiveData<Boolean>()
     val isSessionSaved: LiveData<Boolean> get() = _isSessionSaved
 
-    private val _navigateToStoryActivity = MutableLiveData<Boolean>()
-    val navigateToStoryActivity: LiveData<Boolean> get() = _navigateToStoryActivity
+    private val _navigateToMainActivity = MutableLiveData<Boolean>()
+    val navigateToMainActivity: LiveData<Boolean> get() = _navigateToMainActivity
 
     fun loginUser(email: String, password: String) {
         _isLoading.value = true
@@ -41,11 +42,15 @@ class LoginViewModel(private val apiRepository: ApiUserRepository, private val r
         }
     }
 
+    fun getSession(): LiveData<UserModel> {
+        return repository.getSession().asLiveData()
+    }
+
     fun saveSession(user: UserModel) {
         viewModelScope.launch {
             repository.saveSession(user)
             _isSessionSaved.value = true
-            _navigateToStoryActivity.value = true
+            _navigateToMainActivity.value = true
         }
     }
 }
