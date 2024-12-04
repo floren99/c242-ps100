@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class MajorResponse(
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	val data: List<MajorDataItem> = emptyList(),
 
 	@field:SerializedName("error")
 	val error: Boolean? = null,
@@ -35,22 +35,22 @@ data class CareerProspectsItem(
 	val careerName: String? = null
 )
 
-data class DataItem(
+data class MajorDataItem(
 
 	@field:SerializedName("image")
-	val image: List<Any?>? = null,
+	val image: List<Any> = emptyList(),
 
 	@field:SerializedName("skillsRequired")
-	val skillsRequired: List<String?>? = null,
+	val skillsRequired: List<String> = emptyList(),
 
 	@field:SerializedName("universities")
-	val universities: List<String?>? = null,
+	val universities: List<String> = emptyList(),
 
 	@field:SerializedName("description")
 	val description: String? = null,
 
 	@field:SerializedName("webLinks")
-	val webLinks: List<WebLinksItem?>? = null,
+	val webLinks: List<WebLinksItem> = emptyList(),
 
 	@field:SerializedName("id")
 	val id: Int? = null,
@@ -59,7 +59,7 @@ data class DataItem(
 	val title: String? = null,
 
 	@field:SerializedName("careerProspects")
-	val careerProspects: List<CareerProspectsItem?>? = null,
+	val careerProspects: List<CareerProspectsItem> = emptyList(),
 
 	@field:SerializedName("tips")
 	val tips: String? = null

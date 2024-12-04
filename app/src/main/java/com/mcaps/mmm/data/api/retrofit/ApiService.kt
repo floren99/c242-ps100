@@ -35,5 +35,5 @@ interface ApiService {
     suspend fun getPrefQuestion(): QuestionPrefResponse
 
     @GET("major")
-    fun getAllMajor(): Call<List<MajorResponse>>
+    fun getAllMajor(): Call<MajorResponse>
 }
