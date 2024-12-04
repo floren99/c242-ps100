@@ -40,5 +40,6 @@
     <string name="title_signup_page">Let\'s register you up!</string>
     <string name="sign_out">Sign Out</string>
     <string name="fab_chatbot_desc">Chatbot</string>
-    <string name="select_button">Select</string> />
+    <string name="select_button">Select</string>
+    />
 </resources>
