@@ -7,17 +7,22 @@ import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.dataStore
 import com.mcaps.mmm.data.repository.ApiUserRepository
 import com.mcaps.mmm.data.repository.MajorRepository
+import com.mcaps.mmm.data.repository.QuestionPrefRepository
 import com.mcaps.mmm.data.repository.UserRepository
 import com.mcaps.mmm.di.Injection
 import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.auth.register.RegisterViewModel
 import com.mcaps.mmm.view.dashboard.path.PathViewModel
+import com.mcaps.mmm.view.question.QuizViewModel
+import com.mcaps.mmm.view.question.repository.QuestionRepository
 
 class ViewModelFactory(
     private val pref: SettingPreferences? = null,
     private val apiUserRepository: ApiUserRepository? = null,
     private val userRepository: UserRepository? = null,
-    private val majorRepository: MajorRepository? = null
+    private val majorRepository: MajorRepository? = null,
+    private val questionPrefRepository: QuestionPrefRepository? = null,
+    private val questionRepository: QuestionRepository? = null
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -35,6 +40,9 @@ class ViewModelFactory(
             modelClass.isAssignableFrom(PathViewModel::class.java) -> {
                 PathViewModel(majorRepository!!) as T
             }
+            modelClass.isAssignableFrom(QuizViewModel::class.java) -> {
+                QuizViewModel(questionPrefRepository!!, questionRepository!!) as T
+            }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
     }
@@ -50,7 +58,9 @@ class ViewModelFactory(
                     val userRepository = Injection.provideUserRepository(context)
                     val pref = SettingPreferences.getInstance(context.dataStore)
                     val majorRepository = Injection.provideMajorRepository()
-                    INSTANCE = ViewModelFactory(pref, apiUserRepository, userRepository, majorRepository)
+                    val questionPrefRepository = Injection.provideQuestionPrefRepository()
+                    val questionRepository = QuestionRepository(questionPrefRepository)
+                    INSTANCE = ViewModelFactory(pref, apiUserRepository, userRepository, majorRepository, questionPrefRepository, questionRepository)
                 }
             }
             return INSTANCE as ViewModelFactory
