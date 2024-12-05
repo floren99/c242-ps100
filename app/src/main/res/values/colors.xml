@@ -21,7 +21,7 @@
     <color name="colorSecondaryVariant">#A1C8D1</color>
 
     <!-- Background Colors -->
-    <color name="colorBackground">#EDFCFF</color>
+    <color name="colorBackground">#F2F6F4</color>
 
     <!-- Surface Colors -->
     <color name="colorSurface">#FFFFFF</color>
