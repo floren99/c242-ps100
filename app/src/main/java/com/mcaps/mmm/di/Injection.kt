@@ -2,6 +2,8 @@ package com.mcaps.mmm.di
 
 import android.content.Context
 import com.mcaps.mmm.data.api.retrofit.ApiConfig
+import com.mcaps.mmm.data.local.AppDatabase
+import com.mcaps.mmm.data.local.dao.QuizResultDao
 import com.mcaps.mmm.data.pref.UserPreference
 import com.mcaps.mmm.data.pref.dataStore
 import com.mcaps.mmm.data.repository.ApiUserRepository
@@ -25,5 +27,9 @@ object Injection {
     fun provideQuestionPrefRepository(): QuestionPrefRepository {
         val apiService = ApiConfig.getApiService()
         return QuestionPrefRepository.getInstance(apiService)
+    }
+    fun provideQuizResultDao(context: Context): QuizResultDao {
+        val database = AppDatabase.getInstance(context)
+        return database.quizResultDao()
     }
 }

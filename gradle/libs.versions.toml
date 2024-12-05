@@ -32,6 +32,7 @@ playServicesAuthVersion = "20.7.0"
 playServicesIdentity = "18.1.0"
 playServicesIdentityVersion = "17.0.0"
 retrofit = "2.9.0"
+roomRuntime = "2.6.1"
 viewpager2 = "1.1.0"
 googleGmsGoogleServices = "4.4.2"
 firebaseAuth = "23.1.0"
@@ -44,6 +45,9 @@ androidx-credentials = { module = "androidx.credentials:credentials", version.re
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
 androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastorePreferences" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "glide" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 firebase-core = { module = "com.google.firebase:firebase-core", version.ref = "firebaseCore" }
