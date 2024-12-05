@@ -1,9 +1,9 @@
 const getAllQuestion = require("../services/getAllQuestion");
 
-const getRandomQuestions = async (request, h) => {
+const getRandomQuestionsBerpikirKritis = async (request, h) => {
   try {
     // Fetch all questions
-    const questionList = await getAllQuestion("questions");
+    const questionList = await getAllQuestion("berpikir_kritis");
 
     // Shuffle and select 10 random questions
     const shuffled = questionList.sort(() => 0.5 - Math.random());
@@ -26,4 +26,4 @@ const getRandomQuestions = async (request, h) => {
   }
 };
 
-module.exports = { getRandomQuestions };
+module.exports = { getRandomQuestionsBerpikirKritis };

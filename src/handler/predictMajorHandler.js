@@ -8,6 +8,8 @@ async function postPredictHandler(request, h) { // Need fixing (wait for api ML 
     const { answer } = request.payload;
     const { model } = request.server.app;
 
+    const predict = await MLService(userId, data);
+
     // Get Firebase ID token from headers
     const idToken = request.headers.authorization?.split(" ")[1];
     if (!idToken) {
@@ -20,12 +22,12 @@ async function postPredictHandler(request, h) { // Need fixing (wait for api ML 
     const decodedToken = await admin.auth().verifyIdToken(idToken);
     const userId = decodedToken.uid;
 
-    const { label, percent } = await predictMajor(model, answer);
+    const { prediction, percent } = await predictMajor(model, answer);
     const createdAt = new Date().toISOString();
 
     const data = {
       id: userId,
-      major: label,
+      major: prediction,
       percent,
       createdAt,
     };

@@ -1,11 +1,17 @@
 const axios = require('axios');
 
 async function MLService(data) {
-  const flaskBaseUrl = 'http://localhost:5000'; // Replace with your Flask ML API's base URL
+  // Replace with your actual Cloud Run URL
+  const flaskBaseUrl = 'https://ml-api-capstone-xyz123.a.run.app';  // Cloud Run URL
 
   try {
+    // Prepare the payload as per the Flask API's input format
+    const payload = {
+      input: data,
+    };
+
     // Make a POST request to the Flask API's prediction endpoint
-    const response = await axios.post(`${flaskBaseUrl}/predict`, data, {
+    const response = await axios.post(`${flaskBaseUrl}/predict`, payload, {
       headers: {
         'Content-Type': 'application/json',
       },

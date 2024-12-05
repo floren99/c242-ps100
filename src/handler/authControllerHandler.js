@@ -4,8 +4,8 @@ const db = admin.firestore(); // Initialize Firestore
 // Register User
 
 const registerUser = async (request, h) => {
-  try {
-    const { email, password, username } = request.payload;
+  try { 
+    const { email, password, username }= request.payload;
 
     // Create user using Firebase Admin SDK
     const userRecord = await admin.auth().createUser({

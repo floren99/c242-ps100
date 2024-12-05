@@ -1,6 +1,6 @@
 const { registerUser, loginUser } = require("../handler/authControllerHandler");
 
-const routes = [
+const registerloginRoutes = [
   {
     method: "POST",
     path: "/register",
@@ -21,4 +21,4 @@ const routes = [
   },
 ];
 
-module.exports = routes;
+module.exports = registerloginRoutes;

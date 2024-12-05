@@ -1,5 +1,4 @@
-const getMajor = (request, h) => {
-  const id = parseInt(request.params.id);
+const getMajorAll = (request, h) => {
 
   const data = {
     error: false,
@@ -470,16 +469,7 @@ const getMajor = (request, h) => {
     ],
   };
 
-  // Mencari jurusan berdasarkan 'id' yang diberikan
-  const major = data.data.find((item) => item.id === id);
-
-  if (major) {
-    return h.response({ error: false, data: major }).code(200);
-  } else {
-    return h
-      .response({ error: true, message: "Jurusan tidak ditemukan" })
-      .code(404);
-  }
+  return h.response(data).code(200);
 };
 
-module.exports = { getMajor };
+module.exports = { getMajorAll };

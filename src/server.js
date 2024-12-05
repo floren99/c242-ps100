@@ -1,5 +1,5 @@
 const Hapi = require('@hapi/hapi');
-const routes = require('./src/routes/routes'); // Replace with your actual routes file
+const routes = require('./routes/routes'); // Replace with your actual routes file
 
 const init = async () => {
   try {
