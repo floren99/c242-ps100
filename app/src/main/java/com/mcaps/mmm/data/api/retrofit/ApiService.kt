@@ -2,11 +2,14 @@ package com.mcaps.mmm.data.api.retrofit
 
 import com.mcaps.mmm.data.api.response.LoginResponse
 import com.mcaps.mmm.data.api.response.MajorResponse
+import com.mcaps.mmm.data.api.response.PredictResponse
 import com.mcaps.mmm.data.api.response.QuestionPrefResponse
 import com.mcaps.mmm.data.api.response.RegisterResponse
+import com.mcaps.mmm.data.pref.PredictRequest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -36,4 +39,9 @@ interface ApiService {
 
     @GET("major")
     fun getAllMajor(): Call<MajorResponse>
+
+    @POST("predict")
+    suspend fun predict(
+        @Body request: PredictRequest
+    ): PredictResponse
 }

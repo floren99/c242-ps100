@@ -36,12 +36,12 @@ class ScoreFragment : BottomSheetDialogFragment() {
             val chemScore = binding.editScoreChemistry.text.toString().toIntOrNull() ?: 0
             val engScore = binding.editScoreEnglish.text.toString().toIntOrNull() ?: 0
 
-            val scores = mapOf(
-                "math" to mathScore,
-                "bio" to bioScore,
-                "phys" to physScore,
-                "chem" to chemScore,
-                "eng" to engScore
+            val scores = listOf(
+                mathScore,
+                bioScore,
+                physScore,
+                chemScore,
+                engScore
             )
 
             sharedViewModel.updateScores(scores)
