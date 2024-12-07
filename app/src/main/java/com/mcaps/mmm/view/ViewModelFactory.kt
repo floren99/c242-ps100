@@ -14,6 +14,7 @@ import com.mcaps.mmm.data.repository.UserRepository
 import com.mcaps.mmm.di.Injection
 import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.auth.register.RegisterViewModel
+import com.mcaps.mmm.view.auth.reset.ResetPassViewModel
 import com.mcaps.mmm.view.dashboard.path.PathViewModel
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.question.QuizViewModel
@@ -42,6 +43,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(RegisterViewModel::class.java) -> {
                 RegisterViewModel(apiUserRepository!!) as T
+            }
+            modelClass.isAssignableFrom(ResetPassViewModel::class.java) -> {
+                ResetPassViewModel(apiUserRepository!!) as T
             }
             modelClass.isAssignableFrom(PathViewModel::class.java) -> {
                 PathViewModel(majorRepository!!) as T
