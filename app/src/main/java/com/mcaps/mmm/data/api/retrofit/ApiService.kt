@@ -5,6 +5,7 @@ import com.mcaps.mmm.data.api.response.MajorResponse
 import com.mcaps.mmm.data.api.response.PredictResponse
 import com.mcaps.mmm.data.api.response.QuestionPrefResponse
 import com.mcaps.mmm.data.api.response.RegisterResponse
+import com.mcaps.mmm.data.api.response.ResetPassResponse
 import com.mcaps.mmm.data.pref.PredictRequest
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -35,10 +36,10 @@ interface ApiService {
     ): LoginResponse
 
     @FormUrlEncoded
-    @POST
+    @POST("reset-password")
     suspend fun resetPass(
         @Field("email") email: String
-    )
+    ): ResetPassResponse
 
     @GET("questions")
     suspend fun getPrefQuestion(): QuestionPrefResponse

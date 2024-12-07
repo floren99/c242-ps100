@@ -2,6 +2,7 @@ package com.mcaps.mmm.data.repository
 
 import com.mcaps.mmm.data.api.response.LoginResponse
 import com.mcaps.mmm.data.api.response.RegisterResponse
+import com.mcaps.mmm.data.api.response.ResetPassResponse
 import com.mcaps.mmm.data.api.retrofit.ApiService
 
 class ApiUserRepository private constructor(private val apiService: ApiService) {
@@ -11,6 +12,10 @@ class ApiUserRepository private constructor(private val apiService: ApiService) 
 
     suspend fun loginUser(email: String, password: String): LoginResponse {
         return apiService.login(email, password)
+    }
+
+    suspend fun resetPass(email: String): ResetPassResponse {
+        return apiService.resetPass(email)
     }
 
     companion object {

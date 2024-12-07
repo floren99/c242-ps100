@@ -15,6 +15,7 @@ import com.mcaps.mmm.R
 import com.mcaps.mmm.databinding.FragmentHomeBinding
 import com.mcaps.mmm.databinding.FragmentRegisterBinding
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.auth.reset.ResetPassFragment
 
 class RegisterFragment : BottomSheetDialogFragment() {
 
@@ -44,11 +45,15 @@ class RegisterFragment : BottomSheetDialogFragment() {
                 registerUser(name, email, password)
             }
         }
+        binding.tvReset.setOnClickListener {
+            val resetPassFragment = ResetPassFragment()
+            resetPassFragment.show(childFragmentManager, resetPassFragment.tag)
+        }
 
         registerViewModel.registerResponse.observe(viewLifecycleOwner) { response ->
             if (!response.error!!) {
                 Toast.makeText(requireContext(), "Registration Successful", Toast.LENGTH_SHORT).show()
-                dismiss()  // Close the bottom sheet after successful registration
+                dismiss()
             } else {
                 showErrorDialog("Registration failed: ${response.message}")
             }
@@ -77,6 +82,8 @@ class RegisterFragment : BottomSheetDialogFragment() {
         val ivPass = ObjectAnimator.ofFloat(binding.edRegisterPassword, View.ALPHA, 1f).setDuration(300)
         val lPass = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(300)
         val reg = ObjectAnimator.ofFloat(binding.regButton, View.ALPHA, 1f).setDuration(300)
+        val tvReset = ObjectAnimator.ofFloat(binding.tvReset, View.ALPHA, 1f).setDuration(300)
+        val tvHaveAccount = ObjectAnimator.ofFloat(binding.tvForgotpass, View.ALPHA, 1f).setDuration(300)
 
         val name = AnimatorSet().apply {
             playTogether(tvName, ivName, lName)
@@ -87,9 +94,12 @@ class RegisterFragment : BottomSheetDialogFragment() {
         val pass = AnimatorSet().apply {
             playTogether(tvPass, ivPass, lPass)
         }
+        val reset = AnimatorSet().apply {
+            playTogether(tvReset, tvHaveAccount)
+        }
 
         AnimatorSet().apply {
-            playSequentially(title, name, email, pass, reg)
+            playSequentially(title, name, email, pass, reset, reg)
             startDelay = 200
             start()
         }
