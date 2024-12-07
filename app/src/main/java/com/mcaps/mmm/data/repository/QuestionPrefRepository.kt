@@ -9,6 +9,22 @@ class QuestionPrefRepository private constructor(private val apiService: ApiServ
         return apiService.getPrefQuestion()
     }
 
+    suspend fun getQuestionPref1(): QuestionPrefResponse {
+        return apiService.getPrefQuestion1()
+    }
+
+    suspend fun getQuestionPref2(): QuestionPrefResponse {
+        return apiService.getPrefQuestion2()
+    }
+
+    suspend fun getQuestionPref3(): QuestionPrefResponse {
+        return apiService.getPrefQuestion3()
+    }
+
+    suspend fun getQuestionPref4(): QuestionPrefResponse {
+        return apiService.getPrefQuestion4()
+    }
+
     companion object {
         @Volatile
         private var instance: QuestionPrefRepository? = null

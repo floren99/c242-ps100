@@ -16,7 +16,10 @@ import com.mcaps.mmm.R
 import com.mcaps.mmm.data.api.retrofit.ApiConfig
 import com.mcaps.mmm.data.repository.QuestionPrefRepository
 import com.mcaps.mmm.databinding.ActivityQuizBinding
+import com.mcaps.mmm.view.MainActivity
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.dashboard.test.TestFragment
+import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.question.repository.QuestionRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -27,13 +30,17 @@ class QuizActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityQuizBinding
     private lateinit var quizViewModel: QuizViewModel
+    private val sharedViewModel: TestViewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory.getInstance(this))[TestViewModel::class.java]
+    }
+    private var quizType: String = "defaultQuiz"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityQuizBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Initialize ViewModel
+        quizType = intent.getStringExtra("QUIZ_ID") ?: "defaultQuiz"
         val factory = ViewModelFactory.getInstance(this)
         quizViewModel = ViewModelProvider(this, factory).get(QuizViewModel::class.java)
 
@@ -41,8 +48,7 @@ class QuizActivity : AppCompatActivity() {
         setupObservers()
         setupListeners()
 
-        // Fetch questions
-        quizViewModel.fetchQuestions()
+        quizViewModel.fetchQuestions(quizType)
     }
 
     private fun setupToolbar() {
@@ -87,7 +93,19 @@ class QuizActivity : AppCompatActivity() {
         }
         binding.btnEndTest.setOnClickListener {
             saveCurrentAnswer()
-            // Navigate to results or perform end test logic
+            val quizResult = quizViewModel.calculateResultPercentage()
+            when (quizType) {
+                "1" -> sharedViewModel.saveQuiz(1, quizResult)
+                "2" -> sharedViewModel.saveQuiz(2, quizResult)
+                "3" -> sharedViewModel.saveQuiz(3, quizResult)
+                "4" -> sharedViewModel.saveQuiz(4, quizResult)
+            }
+            val intent = Intent(this, MainActivity::class.java).apply {
+                Toast.makeText(this@QuizActivity, "Result: $quizResult", Toast.LENGTH_SHORT).show()
+                putExtra("RESULT_PERCENTAGE", quizResult)
+            }
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -121,7 +139,7 @@ class QuizActivity : AppCompatActivity() {
         }
 
         if (selectedAnswer.isNotEmpty()) {
-            quizViewModel.saveUserAnswer(selectedAnswer)
+            quizViewModel.saveUserAnswer(selectedAnswer, quizType)
         }
     }
 

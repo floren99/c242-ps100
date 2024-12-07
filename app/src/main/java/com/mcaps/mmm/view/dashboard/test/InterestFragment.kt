@@ -6,24 +6,28 @@ import android.view.View
 import android.view.ViewGroup
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import com.mcaps.mmm.R
 import com.mcaps.mmm.databinding.FragmentInterestBinding
+import com.mcaps.mmm.view.ViewModelFactory
 
 class InterestFragment : BottomSheetDialogFragment() {
     private var _binding: FragmentInterestBinding? = null
     private val binding get() = checkNotNull(_binding)
 
-    private val sharedViewModel: TestViewModel by activityViewModels()
+    private val sharedViewModel: TestViewModel by lazy{
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[TestViewModel::class.java]
+    }
 
     // List of questions
     private val questions = listOf(
-        "1. Do you enjoy problem-solving?",
-        "2. Do you like working in teams?",
-        "3. Do you prefer hands-on tasks?",
-        "4. Do you enjoy learning new technologies?",
-        "5. Do you feel comfortable speaking in public?",
-        "6. Are you detail-oriented?",
-        "7. Do you like analyzing data?"
+        "1. Apakah kamu mempunyai ketertarikan dalam hal pemrograman?",
+        "2. Apakah kamu mempunyai ketertarikan dalam hal analisis data?",
+        "3. Apakah kamu mempunyai ketertarikan dalam hal pemecahan masalah?",
+        "4. Apakah kamu merasa memiliki kemampuan kreatifitas dan bersosialisasi?",
+        "5. Apakah kamu mempunyai ketertarikan dalam hal pekerjaan lapangan?",
+        "6. Apakah kamu merasa mempunyai keterampilan dalam hal kepemimpinan?",
+        "7. Apakah kamu mempunyai ketertarikan dalam hal pekerjaan praktik?"
     )
 
     // Answers storage; -1 indicates unanswered
