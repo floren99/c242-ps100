@@ -9,9 +9,13 @@ class QuestionRepository(private val questionPrefRepository: QuestionPrefReposit
 
     private val questions = mutableListOf<Question>()
 
-    suspend fun fetchQuestionsFromApi() {
-        val response = withContext(Dispatchers.IO) {
-            questionPrefRepository.getAllQuestionPref()
+    suspend fun fetchQuestionsFromApi(quizType : String) {
+        val response = when (quizType) {
+            "1" -> questionPrefRepository.getQuestionPref1()
+            "2" -> questionPrefRepository.getQuestionPref2()
+            "3" -> questionPrefRepository.getQuestionPref3()
+            "4" -> questionPrefRepository.getQuestionPref4()
+            else -> questionPrefRepository.getAllQuestionPref()
         }
         questions.clear()
         questions.addAll(response.questions.mapIndexed { index, item ->

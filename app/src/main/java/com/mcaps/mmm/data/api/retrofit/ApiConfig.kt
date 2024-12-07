@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiConfig {
     fun getApiService(tokenProvider: TokenProvider? = null, apiChoice: String? = null): ApiService {
-        var apiurl = "https://registerlogintest-91863989930.asia-southeast2.run.app/"
+        var apiurl = "https://cc-api-91863989930.asia-southeast2.run.app"
         if (apiChoice == "ml") {
             apiurl = "https://ml-api-capstone-91863989930.asia-southeast2.run.app/"
         }

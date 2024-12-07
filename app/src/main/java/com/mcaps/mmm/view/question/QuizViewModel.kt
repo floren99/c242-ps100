@@ -29,13 +29,17 @@ class QuizViewModel(
     private val _error = MutableLiveData<String?>()
     val error: LiveData<String?> get() = _error
 
-    fun fetchQuestions() {
+    private val quizResults = mutableMapOf<String, MutableList<Question>>()
+
+    fun fetchQuestions(quizType : String) {
         viewModelScope.launch {
             _loading.value = true
             _error.value = null
             try {
-                questionRepository.fetchQuestionsFromApi()
-                _questions.value = questionRepository.getQuestions()
+                questionRepository.fetchQuestionsFromApi(quizType)
+                val questions = questionRepository.getQuestions()
+                quizResults[quizType] = questions.toMutableList()
+                _questions.value = questions
             } catch (e: Exception) {
                 _error.value = "Failed to load questions: ${e.message}"
             } finally {
@@ -52,7 +56,7 @@ class QuizViewModel(
         _currentQuestionIndex.value = (_currentQuestionIndex.value ?: 0).coerceAtLeast(1) - 1
     }
 
-    fun saveUserAnswer(userAnswer: String) {
+    fun saveUserAnswer(userAnswer: String, quizType: String) {
         val index = _currentQuestionIndex.value ?: return
         _questions.value?.let { list ->
             val updatedQuestions = list.toMutableList()
@@ -63,6 +67,23 @@ class QuizViewModel(
             if (question.correctAnswer == userAnswer) {
                 _correctAnswersCount.value = (_correctAnswersCount.value ?: 0) + 1
             }
+
+            quizResults[quizType] = updatedQuestions // Store updated answers for the specific quiz type
+        }
+    }
+
+    fun getQuizResults(quizType: String): List<Question>? {
+        return quizResults[quizType]
+    }
+
+    fun calculateResultPercentage(): Int {
+        val totalQuestions = _questions.value?.size ?: 0
+        val correctAnswers = _correctAnswersCount.value ?: 0
+
+        return if (totalQuestions > 0) {
+            (correctAnswers * 100) / totalQuestions
+        } else {
+            0
         }
     }
 }

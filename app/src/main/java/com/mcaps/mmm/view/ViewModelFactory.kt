@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.mcaps.mmm.data.pref.SettingPreferences
+import com.mcaps.mmm.data.pref.TestPreference
 import com.mcaps.mmm.data.pref.dataStore
 import com.mcaps.mmm.data.repository.ApiUserRepository
 import com.mcaps.mmm.data.repository.MajorRepository
@@ -25,7 +26,9 @@ class ViewModelFactory(
     private val majorRepository: MajorRepository? = null,
     private val questionPrefRepository: QuestionPrefRepository? = null,
     private val questionRepository: QuestionRepository? = null,
-    private val predictRepository: PredictRepository? = null
+    private val predictRepository: PredictRepository? = null,
+    private val testPreference: TestPreference? = null
+
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -47,7 +50,7 @@ class ViewModelFactory(
                 QuizViewModel(questionPrefRepository!!, questionRepository!!) as T
             }
             modelClass.isAssignableFrom(TestViewModel::class.java) -> {
-                TestViewModel(predictRepository!!) as T
+                TestViewModel(predictRepository!!, testPreference!!) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -67,7 +70,8 @@ class ViewModelFactory(
                     val questionPrefRepository = Injection.provideQuestionPrefRepository()
                     val questionRepository = QuestionRepository(questionPrefRepository)
                     val predictRepository = Injection.providePredictRepository()
-                    INSTANCE = ViewModelFactory(pref, apiUserRepository, userRepository, majorRepository, questionPrefRepository, questionRepository, predictRepository)
+                    val testPreference = TestPreference.getInstance(context.dataStore)
+                    INSTANCE = ViewModelFactory(pref, apiUserRepository, userRepository, majorRepository, questionPrefRepository, questionRepository, predictRepository, testPreference)
                 }
             }
             return INSTANCE as ViewModelFactory

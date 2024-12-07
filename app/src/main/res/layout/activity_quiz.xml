@@ -42,6 +42,7 @@
             android:id="@+id/progressBarQuizPref"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
             android:visibility="gone"
             tools:visibility="visible" />
 
@@ -50,18 +51,19 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
-            android:gravity="center">
+            android:gravity="left">
 
             <!-- Question Text -->
             <TextView
                 android:id="@+id/tvQuestion"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pertanyaan muncul di sini"
+                android:paddingHorizontal="8dp"
                 android:textColor="#000000"
-                android:textSize="18sp"
-                android:gravity="center"
-                android:textStyle="bold" />
+                android:textSize="14sp"
+                android:justificationMode="inter_word"
+                android:gravity="left"/>
 
             <!-- Answer Options -->
             <RadioGroup
@@ -72,30 +74,42 @@
 
                 <RadioButton
                     android:id="@+id/radioButtonA"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pilihan A"
+                    android:paddingHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:justificationMode="inter_word"
                     android:buttonTint="#3B82F6" />
 
                 <RadioButton
                     android:id="@+id/radioButtonB"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pilihan B"
+                    android:paddingHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:justificationMode="inter_word"
                     android:buttonTint="#3B82F6" />
 
                 <RadioButton
                     android:id="@+id/radioButtonC"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pilihan C"
+                    android:paddingHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:justificationMode="inter_word"
                     android:buttonTint="#3B82F6" />
 
                 <RadioButton
                     android:id="@+id/radioButtonD"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Pilihan D"
+                    android:paddingHorizontal="8dp"
+                    android:textSize="14sp"
+                    android:justificationMode="inter_word"
                     android:buttonTint="#3B82F6" />
             </RadioGroup>
 

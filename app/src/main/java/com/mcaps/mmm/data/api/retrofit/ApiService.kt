@@ -34,8 +34,27 @@ interface ApiService {
         @Field("password") password: String
     ): LoginResponse
 
+    @FormUrlEncoded
+    @POST
+    suspend fun resetPass(
+        @Field("email") email: String
+    )
+
     @GET("questions")
     suspend fun getPrefQuestion(): QuestionPrefResponse
+
+    @GET("questions-1")
+    suspend fun getPrefQuestion1(): QuestionPrefResponse
+
+    @GET("questions-2")
+    suspend fun getPrefQuestion2(): QuestionPrefResponse
+
+    @GET("questions-3")
+    suspend fun getPrefQuestion3(): QuestionPrefResponse
+
+    @GET("questions-4")
+    suspend fun getPrefQuestion4(): QuestionPrefResponse
+
 
     @GET("major")
     fun getAllMajor(): Call<MajorResponse>

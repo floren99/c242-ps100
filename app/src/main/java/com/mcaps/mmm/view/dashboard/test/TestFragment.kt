@@ -1,18 +1,17 @@
 package com.mcaps.mmm.view.dashboard.test
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.databinding.FragmentTestBinding
 import com.mcaps.mmm.view.ViewModelFactory
-import com.mcaps.mmm.view.auth.register.RegisterFragment
-import com.mcaps.mmm.view.dashboard.path.PathViewModel
+import com.mcaps.mmm.view.question.QuizActivity
 import kotlinx.coroutines.launch
 
 class TestFragment : Fragment() {
@@ -60,10 +59,30 @@ class TestFragment : Fragment() {
             val interestFragment = InterestFragment()
             interestFragment.show(parentFragmentManager, "InterestFragment")
         }
+        binding.quizBtn1.setOnClickListener{
+            val intent = Intent(activity, QuizActivity::class.java)
+            intent.putExtra("QUIZ_ID", "1")
+            startActivity(intent)
+        }
+        binding.quizBtn2.setOnClickListener{
+            val intent = Intent(activity, QuizActivity::class.java)
+            intent.putExtra("QUIZ_ID", "2")
+            startActivity(intent)
+        }
+        binding.quizBtn3.setOnClickListener{
+            val intent = Intent(activity, QuizActivity::class.java)
+            intent.putExtra("QUIZ_ID", "3")
+            startActivity(intent)
+        }
+        binding.quizBtn4.setOnClickListener{
+            val intent = Intent(activity, QuizActivity::class.java)
+            intent.putExtra("QUIZ_ID", "4")
+            startActivity(intent)
+        }
 
         binding.buttonCek.setOnClickListener {
-            val input = listOf(46, 67, 74, 75, 74, 19, 70, 73, 76, 1, 0, 1, 0, 0, 0, 1)
-            val request = PredictRequest(input)
+            val finalInput = sharedViewModel.getFinalInput()
+            val request = PredictRequest(finalInput)
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
                     val response = sharedViewModel.predict(request)
