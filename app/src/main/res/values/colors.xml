@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#A4A4A4</color>
     <color name="red">#E86464</color>
+    <color name="invisible">#00FFFFFF</color>
 
     <!-- Light -->
     <!-- Primary Colors -->

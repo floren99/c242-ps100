@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -86,6 +87,7 @@ class TestFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
                     val response = sharedViewModel.predict(request)
+                    Toast.makeText(requireContext(), "Prediksi berhasil", Toast.LENGTH_SHORT).show()
                     println("Prediction response: $response")
                 } catch (e: Exception) {
                     e.printStackTrace()

@@ -12,6 +12,7 @@ import com.mcaps.mmm.databinding.ActivityMainBinding
 import com.mcaps.mmm.view.auth.login.LoginActivity
 import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.dataStore
+import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.chatbot.ChatbotActivity
 import com.mcaps.mmm.view.question.QuestionActivity
 
@@ -24,13 +25,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Theme management
         val pref = SettingPreferences.getInstance(application.dataStore)
         val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
 
-        // Observe the theme settings
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
-            // Set dark or light mode based on user preference
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
             } else {
@@ -67,11 +65,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.chatbot.setOnClickListener {
             val intent = Intent(this, ChatbotActivity::class.java)
-            startActivity(intent)
-        }
-
-        binding.question.setOnClickListener {
-            val intent = Intent(this, QuestionActivity::class.java)
             startActivity(intent)
         }
     }

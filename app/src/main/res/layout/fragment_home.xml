@@ -16,11 +16,12 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
-            android:background="@drawable/circle_button"
+            android:background="@color/invisible"
+            android:backgroundTint="@color/invisible"
             android:drawableTop="@drawable/ic_menu_black_24dp"
             android:elevation="4dp"
             android:gravity="center"
-            android:paddingTop="3dp"
+            android:paddingTop="1dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="6dp"
             android:fontFamily="@font/poppins_regular"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"

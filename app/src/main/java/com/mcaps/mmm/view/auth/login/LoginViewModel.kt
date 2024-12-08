@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import androidx.lifecycle.map
 import androidx.lifecycle.viewModelScope
 import com.mcaps.mmm.data.api.response.LoginResponse
 import com.mcaps.mmm.data.pref.UserModel
@@ -44,6 +45,11 @@ class LoginViewModel(private val apiRepository: ApiUserRepository, private val r
 
     fun getSession(): LiveData<UserModel> {
         return repository.getSession().asLiveData()
+    }
+    fun isUserLoggedIn(): LiveData<Boolean> {
+        return repository.getSession().asLiveData().map { user ->
+            user.token.isNotEmpty()
+        }
     }
 
     fun saveSession(user: UserModel) {
