@@ -1,8 +1,10 @@
 package com.mcaps.mmm.view.menu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.CompoundButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
@@ -14,6 +16,9 @@ import com.mcaps.mmm.databinding.ActivityMainBinding
 import com.mcaps.mmm.databinding.ActivityMenuBinding
 import com.mcaps.mmm.view.MainViewModel
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.auth.login.LoginActivity
+import com.mcaps.mmm.view.auth.login.LoginViewModel
+import com.mcaps.mmm.view.chatbot.ChatbotActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -25,6 +30,7 @@ class MenuActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMenuBinding
     private lateinit var mainViewModel: MainViewModel
+    private lateinit var loginViewModel: LoginViewModel
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +43,17 @@ class MenuActivity : AppCompatActivity() {
 
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive ->
             binding.themeSwitch.isChecked = isDarkModeActive
+        }
+
+        loginViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(LoginViewModel::class.java)
+
+        binding.btnSignoutMenu.setOnClickListener {
+            loginViewModel.logout()
+            Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, LoginActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+            finish()
         }
 
         binding.themeSwitch.setOnCheckedChangeListener { _: CompoundButton?, isChecked: Boolean ->

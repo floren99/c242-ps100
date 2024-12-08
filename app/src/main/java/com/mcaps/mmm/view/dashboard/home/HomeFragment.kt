@@ -34,10 +34,6 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, MenuActivity::class.java)
             startActivity(intent)
         }
-        binding.signupHome.setOnClickListener {
-            val intent = Intent(activity, LoginActivity::class.java)
-            startActivity(intent)
-        }
     }
     override fun onDestroyView() {
         super.onDestroyView()
