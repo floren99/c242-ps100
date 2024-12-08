@@ -1,5 +1,6 @@
 package com.mcaps.mmm.view.auth.login
 
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -49,6 +50,13 @@ class LoginViewModel(private val apiRepository: ApiUserRepository, private val r
     fun isUserLoggedIn(): LiveData<Boolean> {
         return repository.getSession().asLiveData().map { user ->
             user.token.isNotEmpty()
+        }
+    }
+
+    fun logout(){
+        viewModelScope.launch {
+            repository.logout()
+            _navigateToMainActivity.value = false
         }
     }
 
