@@ -1,7 +1,6 @@
 const admin = require("../services/firebaseAdmin");
 const axios = require("axios");
-const db = admin.firestore(); // Initialize Firestore
-// Register User
+const db = admin.firestore(); 
 
 const registerUser = async (request, h) => {
   try { 

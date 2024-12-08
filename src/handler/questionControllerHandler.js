@@ -2,7 +2,6 @@ const getAllQuestion = require("../services/getAllQuestion");
 
 const getRandomQuestions = async (request, h) => {
   try {
-    // Fetch all questions
     const questionList = await getAllQuestion("questions");
 
     // Shuffle and select 10 random questions

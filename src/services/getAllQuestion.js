@@ -7,7 +7,7 @@ async function getAllQuestion(collectionName) {
     const snapshot = await collection.get();
 
     const dataList = snapshot.docs.map((doc) => ({
-      id: doc.id, // Include document ID if needed
+      id: doc.id, // Include document ID 
       ...doc.data(), // Spread the document data
     }));
 

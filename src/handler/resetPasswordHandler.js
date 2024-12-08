@@ -1,10 +1,9 @@
-const axios = require("axios"); // Import axios for HTTP requests
-const admin = require("../services/firebaseAdmin"); // Import Firebase Admin SDK
+const axios = require("axios"); 
+const admin = require("../services/firebaseAdmin"); 
 
-// Password reset handler
 const resetPassword = async (request, h) => {
   try {
-    const { email } = request.payload; // Ensure email is in the payload
+    const { email } = request.payload; 
 
     if (!email) {
       return h.response({
@@ -18,10 +17,9 @@ const resetPassword = async (request, h) => {
       // Use the Firebase Admin SDK to check if the email exists
       const userRecord = await admin.auth().getUserByEmail(email);
 
-      // If we successfully get the user record, the email exists
+      // If  successfully get the user record, the email exists
       console.log('User found:', userRecord.toJSON());
 
-      // Now, proceed to send the password reset email
       const response = await axios.post(
         `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyA4r5XOKBTcvaywm021xXViGBij_w18yso`, // Replace with your Firebase Web API Key
         {
@@ -42,7 +40,6 @@ const resetPassword = async (request, h) => {
         .code(200);
 
     } catch (error) {
-      // If the user is not found in Firebase Authentication, we handle this gracefully
       console.error("User not found:", error.message);
       
       return h.response({
@@ -57,7 +54,6 @@ const resetPassword = async (request, h) => {
       error.response?.data || error.message
     );
 
-    // Log the error details for debugging
     const errorMessage =
       error.response?.data?.error?.message ||
       "An error occurred during password reset.";
