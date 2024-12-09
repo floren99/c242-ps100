@@ -27,7 +27,7 @@ class PathFragment : Fragment() {
         ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[PathViewModel::class.java]
     }
 
-    private lateinit var pathAdapter: PathAdapter // Create an adapter for MajorDataItem
+    private lateinit var pathAdapter: PathAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,

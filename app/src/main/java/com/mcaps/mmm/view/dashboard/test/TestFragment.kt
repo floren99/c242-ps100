@@ -87,7 +87,7 @@ class TestFragment : Fragment() {
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
                     val response = sharedViewModel.predict(request)
-                    Toast.makeText(requireContext(), "Prediksi berhasil", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "${response.predictedLabel}", Toast.LENGTH_SHORT).show()
                     println("Prediction response: $response")
                 } catch (e: Exception) {
                     e.printStackTrace()

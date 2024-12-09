@@ -46,7 +46,7 @@ class SplashActivity : AppCompatActivity() {
 
         setupView()
     }
-
+    
     private fun setupView() {
         @Suppress("DEPRECATION")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
