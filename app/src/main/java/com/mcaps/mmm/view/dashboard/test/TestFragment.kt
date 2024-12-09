@@ -14,6 +14,7 @@ import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.databinding.FragmentTestBinding
 import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.dashboard.ResultFragment
+import com.mcaps.mmm.view.dashboard.test.history.HistoryTestActivity
 import com.mcaps.mmm.view.question.QuizActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -77,6 +78,10 @@ class TestFragment : Fragment() {
         binding.quizBtn4.setOnClickListener{
             val intent = Intent(activity, QuizActivity::class.java)
             intent.putExtra("QUIZ_ID", "4")
+            startActivity(intent)
+        }
+        binding.btnHistory.setOnClickListener{
+            val intent = Intent(activity, HistoryTestActivity::class.java)
             startActivity(intent)
         }
 

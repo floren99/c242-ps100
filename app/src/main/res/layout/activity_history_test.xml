@@ -12,7 +12,7 @@
         android:padding="16dp">
 
         <ProgressBar
-            android:id="@+id/progressBarPath"
+            android:id="@+id/progressBarHistory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:visibility="gone"
@@ -23,7 +23,7 @@
             tools:visibility="visible" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_paths"
+            android:id="@+id/rv_history"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"

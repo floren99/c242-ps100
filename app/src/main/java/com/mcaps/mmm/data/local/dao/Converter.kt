@@ -1,28 +1,32 @@
 package com.mcaps.mmm.data.local.dao
 
 import androidx.room.TypeConverter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import java.util.Date
 
 class Converters {
 
+    // Convert List<Int> to String and back
     @TypeConverter
-    fun fromString(value: String): List<String> {
-        return value.split(",").map { it.trim() }
+    fun fromString(value: String): List<Int> {
+        val listType = object : TypeToken<List<Int>>() {}.type
+        return Gson().fromJson(value, listType)
     }
 
     @TypeConverter
-    fun fromList(value: List<String>): String {
-        return value.joinToString(",")
+    fun fromList(list: List<Int>): String {
+        return Gson().toJson(list)
     }
 
-    // Converts Date to Long and back
+    // Convert Date to Long (timestamp) and back
     @TypeConverter
-    fun fromDate(value: Date): Long {
-        return value.time
-    }
-
-    @TypeConverter
-    fun toDate(value: Long): Date {
+    fun fromDate(value: Long): Date {
         return Date(value)
+    }
+
+    @TypeConverter
+    fun dateToTimestamp(date: Date): Long {
+        return date.time
     }
 }

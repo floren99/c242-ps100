@@ -37,6 +37,8 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
     private val _quiz4 = MutableLiveData<Int>().apply { value = 0 }
     val quiz4: LiveData<Int> get() = _quiz4
 
+    val userHistory: LiveData<List<UserData>> = userDataRepository.getAllUserData()
+
     init {
         viewModelScope.launch {
             testPreference.getScores().collect { scores ->
@@ -131,6 +133,12 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
 
         viewModelScope.launch {
             userDataRepository.insertUserData(userData)
+        }
+    }
+
+    suspend fun getAllDaoData(){
+        viewModelScope.launch {
+            userDataRepository.getAllUserData()
         }
     }
 
