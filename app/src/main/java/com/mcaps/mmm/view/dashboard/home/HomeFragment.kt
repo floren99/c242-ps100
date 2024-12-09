@@ -8,15 +8,26 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.mcaps.mmm.databinding.FragmentHomeBinding
+import com.mcaps.mmm.view.MainViewModel
+import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.auth.login.LoginActivity
+import com.mcaps.mmm.view.auth.login.LoginViewModel
+import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.menu.MenuActivity
 import com.mcaps.mmm.view.question.QuestionActivity
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
-    private val homeViewModel: HomeViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[HomeViewModel::class.java]
+    }
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private var email = ""
+    private var username = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,7 +43,15 @@ class HomeFragment : Fragment() {
 
         binding.menuButton.setOnClickListener{
             val intent = Intent(activity, MenuActivity::class.java)
+            intent.putExtra("email", email)
+            intent.putExtra("username", username)
             startActivity(intent)
+        }
+
+        homeViewModel.getUserSession().observe(viewLifecycleOwner) { userModel ->
+            username = userModel.username
+            email = userModel.email
+            binding.usernameHome.text = username
         }
     }
     override fun onDestroyView() {

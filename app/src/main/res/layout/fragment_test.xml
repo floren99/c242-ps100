@@ -12,12 +12,43 @@
         android:padding="16dp">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp"
+            app:cardCornerRadius="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:id="@+id/test_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:text="Ikuti Tes untuk Menemukan Jurusan yang Sesuai dengan Minat dan Kemampuanmu"
+                android:textColor="@color/colorOnPrimary"
+                android:textSize="16sp"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingHorizontal="32dp"
+                android:paddingVertical="8dp"
+                android:gravity="center"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textAlignment="center"/>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:cardElevation="4dp"
             app:cardCornerRadius="8dp"
-            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/cardViewTitle"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginBottom="16dp">
@@ -28,7 +59,6 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <!-- Horizontal item 1 -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -56,6 +86,7 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/done1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Done"
@@ -66,6 +97,8 @@
                         android:id="@+id/buttonInputNilai"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:textColor="@color/colorOnSecondary"
                         android:text="Input" />
                 </LinearLayout>
 
@@ -107,6 +140,8 @@
                         android:id="@+id/quizBtn1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:textColor="@color/colorOnSecondary"
                         android:text="Quiz 1" />
                 </LinearLayout>
 
@@ -148,6 +183,8 @@
                         android:id="@+id/quizBtn2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:textColor="@color/colorOnSecondary"
                         android:text="Quiz 2" />
                 </LinearLayout>
 
@@ -188,6 +225,8 @@
                         android:id="@+id/quizBtn3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:textColor="@color/colorOnSecondary"
                         android:text="Quiz 3" />
                 </LinearLayout>
 
@@ -228,6 +267,8 @@
                         android:id="@+id/quizBtn4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:textColor="@color/colorOnSecondary"
                         android:text="Quiz 4" />
                 </LinearLayout>
 
@@ -258,6 +299,7 @@
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/done6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Done"
@@ -268,33 +310,32 @@
                         android:id="@+id/buttonInputMinat"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:backgroundTint="@color/colorSecondary"
+                        android:textColor="@color/colorOnSecondary"
                         android:text="Fill" />
                 </LinearLayout>
+                <Button
+                    android:id="@+id/btnHistory"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="History"
+                    android:layout_marginTop="4dp"
+                    android:layout_gravity="center"
+                    android:backgroundTint="@color/colorAnswered"
+                    android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Button below CardView -->
         <Button
             android:id="@+id/button_cek"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Cek"
+            android:text="Cek Hasil"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="@color/colorPrimaryVariant"
+            android:textColor="@color/colorSecondary"
             app:layout_constraintTop_toBottomOf="@id/cardView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <TextView
-            android:id="@+id/text_testHasil"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/button_cek"
-            android:text="Hasil : []"/>
-
-        <TextView
-            android:id="@+id/text_testMinat"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/text_testHasil"
-            android:text="Hasil : []"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

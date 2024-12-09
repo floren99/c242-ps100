@@ -73,8 +73,9 @@ class LoginActivity : AppCompatActivity() {
 
                 viewModel.loginResponse.observe(this) { response ->
                     val token = response.loginResult?.token
+                    val username = response.loginResult?.username ?: "User"
                     if (token != null) {
-                        val user = UserModel(email, token, true)
+                        val user = UserModel(email, token, true, username)
                         viewModel.saveSession(user)
                     } else {
                         AlertDialog.Builder(this)

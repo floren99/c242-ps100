@@ -30,24 +30,46 @@ class GeminiAdapter(var context: Context, var list: ArrayList<DataResponse>,
         fun bind(position: Int) {
             val data = list[position]
 
-            val formattedText = processBoldText(data.prompt)
-
-            if (list.size - 1 == position) {
-                text.animateText(formattedText)
-                text.setCharacterDelay(30)
-            } else {
-                text.text = formattedText
-            }
-
-            if (data.imageUri.isNotBlank()) {
-                image.visibility = View.VISIBLE
-                Glide.with(context)
-                    .load(Uri.parse(data.imageUri))
-                    .into(image)
-            } else {
+            if (data.isLoading) {
+                // Tampilkan animasi loading dengan titik-titik berjalan
+                animateLoadingDots()
                 image.visibility = View.GONE
+            } else {
+                val formattedText = processBoldText(data.prompt)
+
+                if (list.size - 1 == position) {
+                    text.animateText(formattedText)
+                    text.setCharacterDelay(30)
+                } else {
+                    text.text = formattedText
+                }
+
+                if (data.imageUri.isNotBlank()) {
+                    image.visibility = View.VISIBLE
+                    Glide.with(context)
+                        .load(Uri.parse(data.imageUri))
+                        .into(image)
+                } else {
+                    image.visibility = View.GONE
+                }
             }
         }
+
+        private fun animateLoadingDots() {
+            text.text = "....."
+            val handler = android.os.Handler()
+            var dots = 0
+            handler.postDelayed(object : Runnable {
+                override fun run() {
+                    dots = (dots + 1) % 6
+                    val dotString = ".".repeat(dots)
+                    text.text = "$dotString"
+                    handler.postDelayed(this, 500)
+                }
+            }, 500)
+        }
+
+
 
         private fun processBoldText(input: String): SpannableString {
             val spannableString = SpannableString(input)

@@ -104,14 +104,20 @@ class ChatbotActivity : AppCompatActivity() {
 
             val userImageUri = if (imageUri.isBlank()) "" else imageUri
 
+            // Tambahkan pesan user
             val userMessage = DataResponse(0, userPrompt, imageUri = userImageUri)
             responseData.add(0, userMessage)
             adapter.notifyItemInserted(0)
 
-            recyclerView.post {
-                recyclerView.scrollToPosition(0)
-            }
+            recyclerView.post { recyclerView.scrollToPosition(0) }
 
+            // Tambahkan loading indicator
+            val loadingMessage = DataResponse(1, "...", imageUri = "", isLoading = true)
+            responseData.add(0, loadingMessage)
+            adapter.notifyItemInserted(0)
+            recyclerView.post { recyclerView.scrollToPosition(0) }
+
+            // Simulasi input ke AI
             val inputContent = content {
                 if (bitmap != null) image(bitmap!!)
                 text(userPrompt)
@@ -121,18 +127,22 @@ class ChatbotActivity : AppCompatActivity() {
                 val response = generativeModel.generateContent(inputContent)
 
                 runOnUiThread {
+                    // Hapus indikator loading
+                    responseData.removeAt(0)
+                    adapter.notifyItemRemoved(0)
+
+                    // Tambahkan respons dari AI
                     val aiResponse = DataResponse(1, response.text ?: "", "")
                     responseData.add(0, aiResponse)
                     adapter.notifyItemInserted(0)
-                    recyclerView.post {
-                        recyclerView.scrollToPosition(0)
-                    }
+                    recyclerView.post { recyclerView.scrollToPosition(0) }
                 }
             }
         } else {
             Toast.makeText(this, "Please enter a message before sending", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun clearSelectedImage() {
         imageUri = ""

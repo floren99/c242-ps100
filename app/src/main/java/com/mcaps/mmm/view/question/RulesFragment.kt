@@ -21,17 +21,14 @@ class RulesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the fragment layout
         return inflater.inflate(R.layout.fragment_rules, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Handle the Back button click
         val backButton: Button = view.findViewById(R.id.btnCancel)
         backButton.setOnClickListener {
-            // Navigate back to the previous screen (QuestionActivity)
             activity?.onBackPressed()
         }
 

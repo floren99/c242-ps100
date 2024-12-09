@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val pref = SettingPreferences.getInstance(application.dataStore)
         val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
+        val username = intent.getStringExtra("username")
 
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
@@ -35,6 +36,8 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }
         }
+
+        mainViewModel.saveUsername(username ?: "User")
 
         // Setup ViewPager2
         val viewPager: ViewPager2 = binding.viewPager

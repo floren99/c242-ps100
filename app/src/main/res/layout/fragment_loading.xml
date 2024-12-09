@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorOnSurface"
+    android:gravity="center"
+    tools:context="view.LoadingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:background="@drawable/dialog_background"
+        android:gravity="center">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+        <TextView
+            android:id="@+id/textLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Loading"
+            android:layout_marginHorizontal="4dp"
+            android:textSize="20sp"
+            android:textColor="@color/colorOnSurface" />
+        <TextView
+            android:id="@+id/ellipsis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=". . ."
+            android:textSize="20sp"
+            android:textColor="@color/colorOnSurface" />
+
+    </LinearLayout>
+</FrameLayout>

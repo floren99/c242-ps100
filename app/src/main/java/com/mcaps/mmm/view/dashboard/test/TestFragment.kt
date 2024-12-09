@@ -9,10 +9,13 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.mcaps.mmm.R
 import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.databinding.FragmentTestBinding
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.dashboard.ResultFragment
 import com.mcaps.mmm.view.question.QuizActivity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class TestFragment : Fragment() {
@@ -36,14 +39,10 @@ class TestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel.scores.observe(viewLifecycleOwner) { scores ->
-            binding.textTestHasil.text = scores.joinToString(", ") {
-                "${it}"
-            }
+            binding.done1.text = "Done"
         }
         sharedViewModel.minat.observe(viewLifecycleOwner) { minat ->
-            binding.textTestMinat.text = minat.joinToString(", "){
-                "${it}"
-            }
+            binding.done6.text = "Done"
         }
 
         sharedViewModel.answers.let { answers ->
@@ -84,13 +83,22 @@ class TestFragment : Fragment() {
         binding.buttonCek.setOnClickListener {
             val finalInput = sharedViewModel.getFinalInput()
             val request = PredictRequest(finalInput)
+
+            val loadingDialog = LoadingDialogFragment.newInstance()
+            loadingDialog.isCancelable = false
+            loadingDialog.show(parentFragmentManager, "LoadingDialog")
+
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
+                    delay(3000)
                     val response = sharedViewModel.predict(request)
-                    Toast.makeText(requireContext(), "${response.predictedLabel}", Toast.LENGTH_SHORT).show()
-                    println("Prediction response: $response")
+                    sharedViewModel.saveDataToDatabase("${response.predictedLabel}")
+                    loadingDialog.dismiss()
+                    val resultDialog = ResultFragment.newInstance("${response.predictedLabel}", R.drawable.ic_baseline_android_24)
+                    resultDialog.show(parentFragmentManager, "ResultDialog")
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    loadingDialog.dismiss()
                 }
             }
         }

@@ -41,11 +41,17 @@ class MenuActivity : AppCompatActivity() {
         val pref = SettingPreferences.getInstance(this.themeDataStore)
         mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
 
+        val email = intent.getStringExtra("email")
+        val username = intent.getStringExtra("username")
+
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive ->
             binding.themeSwitch.isChecked = isDarkModeActive
         }
 
         loginViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(LoginViewModel::class.java)
+
+        binding.username.text = username
+        binding.email.text = email
 
         binding.btnSignoutMenu.setOnClickListener {
             loginViewModel.logout()
