@@ -17,6 +17,7 @@ import retrofit2.http.GET
 import retrofit2.http.Multipart
 import retrofit2.http.POST
 import retrofit2.http.Part
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface ApiService {
@@ -56,9 +57,11 @@ interface ApiService {
     @GET("questions-4")
     suspend fun getPrefQuestion4(): QuestionPrefResponse
 
-
     @GET("major")
     fun getAllMajor(): Call<MajorResponse>
+
+    @GET("major/{id}")
+    fun getMajorById(@Path("id") id: Int): Call<MajorResponse>
 
     @POST("predict")
     suspend fun predict(

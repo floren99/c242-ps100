@@ -321,7 +321,7 @@
                     android:text="History"
                     android:layout_marginTop="4dp"
                     android:layout_gravity="center"
-                    android:backgroundTint="@color/colorAnswered"
+                    android:backgroundTint="@color/colorSecondaryVariant"
                     android:textColor="@color/colorPrimaryDark"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>

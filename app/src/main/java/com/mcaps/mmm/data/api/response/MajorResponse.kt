@@ -20,7 +20,7 @@ data class MajorResponse(
 @Parcelize
 data class MajorDataItem(
 	@SerializedName("image")
-	val image: @RawValue List<Any> = emptyList(),
+	val image: List<String> = emptyList(),
 
 	@SerializedName("skillsRequired")
 	val skillsRequired: List<String> = emptyList(),

@@ -12,6 +12,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.mcaps.mmm.data.api.response.MajorDataItem
 import com.mcaps.mmm.databinding.ItemGridPathBinding
 import com.mcaps.mmm.view.dashboard.path.PathAdapter.MyViewHolder.Companion.DIFF_CALLBACK
@@ -49,11 +50,15 @@ class PathAdapter(private val context: Context) :
             }
         }
     }
-    class MyViewHolder(val binding: ItemGridPathBinding, private val context: Context) :
+    class MyViewHolder(val binding: ItemGridPathBinding, val context: Context) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(path: MajorDataItem) {
             binding.tvItemName.text = path.title
             binding.tvItemDescription.text = path.description
+            val firstImage = path.image[0]
+            Glide.with(binding.root.context)
+                .load(firstImage)
+                .into(binding.imgItemPhoto)
             Log.d("PathAdapter", "Binding path: ${path.title}")
         }
 

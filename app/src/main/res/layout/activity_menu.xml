@@ -29,7 +29,7 @@
                     android:id="@+id/profile_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_people_black_24dp"
+                    android:src="@drawable/mmm_dashboard"
                     android:contentDescription="Profile Picture"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="16dp"
@@ -83,7 +83,7 @@
                     <View
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:background="@drawable/ic_dashboard_black_24dp"
+                        android:background="@drawable/mmm_dashboard"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="16dp" />
 

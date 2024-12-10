@@ -69,25 +69,26 @@ class GeminiAdapter(var context: Context, var list: ArrayList<DataResponse>,
             }, 500)
         }
 
-
-
         private fun processBoldText(input: String): SpannableString {
-            val spannableString = SpannableString(input)
-            var startIndex = input.indexOf("**")
-            while (startIndex != -1) {
-                val endIndex = input.indexOf("**", startIndex + 2)
-                if (endIndex != -1) {
-                    spannableString.setSpan(
-                        StyleSpan(android.graphics.Typeface.BOLD),
-                        startIndex + 2,
-                        endIndex,
-                        0
-                    )
-                    startIndex = input.indexOf("**", endIndex + 2)
-                } else {
-                    break
-                }
+            val regex = Regex("\\*\\*(.*?)\\*\\*")
+            val plainText = input.replace(regex, "$1")
+
+            val spannableString = SpannableString(plainText)
+            var matchStartIndex = 0
+
+            regex.findAll(input).forEach { matchResult ->
+                val start = plainText.indexOf(matchResult.groupValues[1], matchStartIndex)
+                val end = start + matchResult.groupValues[1].length
+                matchStartIndex = end
+
+                spannableString.setSpan(
+                    StyleSpan(android.graphics.Typeface.BOLD),
+                    start,
+                    end,
+                    SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
             }
+
             return spannableString
         }
     }

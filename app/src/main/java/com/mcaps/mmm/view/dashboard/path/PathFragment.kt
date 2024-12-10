@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mcaps.mmm.databinding.FragmentPathBinding
+import com.mcaps.mmm.view.MainActivity
 import com.mcaps.mmm.view.ViewModelFactory
 import kotlinx.coroutines.launch
 
@@ -81,5 +82,17 @@ class PathFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Make the button visible in MainActivity
+        (activity as? MainActivity)?.buttonCompareVisibility(true)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        // Optionally, hide the button when the fragment is paused
+        (activity as? MainActivity)?.buttonCompareVisibility(false)
     }
 }

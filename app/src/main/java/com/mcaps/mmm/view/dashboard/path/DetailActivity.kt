@@ -56,7 +56,7 @@ class DetailActivity : AppCompatActivity() {
                 pathData.webLinks.joinToString("\n\n") { link ->
                     """
                     ${link.title ?: "Untitled"}<br>
-                    <a href="${link.url ?: "#"}">${link.url ?: "No URL"}</a><br><br>
+                    <a href="${link.url ?: "#"}">${link.url ?: "No URL"}</a>
                     """.trimIndent()
                 }
             } else {
@@ -84,4 +84,3 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 }
-

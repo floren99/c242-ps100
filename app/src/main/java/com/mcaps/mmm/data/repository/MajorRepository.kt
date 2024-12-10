@@ -11,6 +11,10 @@ class MajorRepository private constructor(
         return apiService.getAllMajor()
     }
 
+    suspend fun getMajorById(id: Int): Call<MajorResponse> {
+        return apiService.getMajorById(id)
+    }
+
     companion object {
         @Volatile
         private var instance: MajorRepository? = null
