@@ -1,10 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.menu.AboutActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/shape1"
+            android:layout_width="261dp"
+            android:layout_height="350dp"
+            android:src="@drawable/shape1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="-50dp"
+            android:layout_marginStart="250dp" />
+
+        <ImageView
+            android:id="@+id/shape2"
+            android:layout_width="258dp"
+            android:layout_height="350dp"
+            android:src="@drawable/shape1"
+            app:layout_constraintTop_toBottomOf="@+id/shape1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="-100dp"/>
+
+        <TextView
+            android:id="@+id/titleAboutUs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="About Us"
+            android:textSize="24sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"/>
+
+        <LinearLayout
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/titleAboutUs"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="124dp"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimary" />
+
+            <View
+                android:layout_marginStart="12dp"
+                android:layout_width="124dp"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimary2"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/aboutUsDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/line1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="13sp"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="24dp"
+            android:text="@string/aboutUsDesc"/>
+
+        <TextView
+            android:id="@+id/aboutUsSpecThx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/aboutUsDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/poppins_light"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="24dp"
+            android:textSize="12sp"
+            android:textAlignment="textEnd"
+            android:text="@string/aboutUsSpecThx"/>
+
+        <TextView
+            android:id="@+id/aboutUsSpecThx2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/aboutUsSpecThx"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:fontFamily="@font/poppins_light"
+            android:layout_marginTop="20dp"
+            android:paddingHorizontal="24dp"
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            android:text="@string/aboutUsSpecThx2"/>
+
+        <TextView
+            android:id="@+id/titleAndroidDev"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Project Team"
+            android:textSize="16sp"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintTop_toBottomOf="@id/aboutUsSpecThx2"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="24dp"/>
+
+        <LinearLayout
+            android:id="@+id/line2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/titleAndroidDev"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="240dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="80dp"
+                android:background="@color/colorPrimary" />
+
+            <View
+                android:layout_width="240dp"
+                android:layout_height="3dp"
+                android:background="@color/colorPrimary2"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/md1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:layout_marginTop="20dp"
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintTop_toBottomOf="@id/line2"
+            android:text="Berlian Aji Nur Khairi - Project Lead"/>
+
+        <TextView
+            android:id="@+id/md2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintTop_toBottomOf="@id/md1"
+            android:text="Marcello Jayekto - Mobile Dev Lead"/>
+
+        <TextView
+            android:id="@+id/ml1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="12sp"
+            android:textAlignment="textEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/md2"
+            android:text="ML Lead - Muhammad Arief Rachman"/>
+
+        <TextView
+            android:id="@+id/ml2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="12sp"
+            android:textAlignment="textEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintTop_toBottomOf="@id/ml1"
+            android:text="Resource Manager - Na’imatul Lu’lu’a"/>
+
+        <TextView
+            android:id="@+id/ml3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="12sp"
+            android:textAlignment="textEnd"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintTop_toBottomOf="@id/ml2"
+            android:text="Github &amp; Repository Manager- Florencia Yang"/>
+
+        <TextView
+            android:id="@+id/cc1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/ml3"
+            android:text="M. Naufal Rafy G - Cloud Comp Lead"/>
+
+        <TextView
+            android:id="@+id/cc2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="12sp"
+            android:textAlignment="textStart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintTop_toBottomOf="@id/cc1"
+            android:text="Geta Gabriela Merru - Resource Manager"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -42,4 +42,8 @@
     <string name="fab_chatbot_desc">Chatbot</string>
     <string name="select_button">Select</string>
     <string name="icon_description">Icon Desc</string>
+
+    <string name="aboutUsDesc">This project aims to bridge the gap between high school students\' interests and informed decision-making. Through advanced assessments and tailored recommendations, we envision equipping students with the tools and insights necessary to pursue fulfilling academic and career paths.</string>
+    <string name="aboutUsSpecThx">This platform is the result of countless hours of hard work, creativity, and collaboration. We aim to bring value to your life, and we sincerely hope you enjoy exploring what we\'ve built.</string>
+    <string name="aboutUsSpecThx2">A heartfelt thank you for your support and trust in our journey. Your encouragement inspires us to keep improving and striving for excellence.\nStay tuned for exciting updates and new features as we continue to grow and evolve!\nWith gratitude,</string>
 </resources>
