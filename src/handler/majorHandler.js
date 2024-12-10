@@ -7,7 +7,7 @@ const getMajor = (request, h) => {
     data: [
       {
         id: 1,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/aktuaria.jpg"],
         title: "Aktuari",
         description:
           "Aktuari adalah ilmu yang menggabungkan statistik, matematika, dan keuangan untuk mengukur dan mengelola risiko dan ketidakpastian...",
@@ -57,7 +57,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 2,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/farmasi.jpg"],
         title: "Farmasi",
         description:
           "Farmasi adalah bidang studi yang berfokus pada ilmu-ilmu yang terkait dengan obat-obatan...",
@@ -102,7 +102,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 3,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/ilmu_komputer.jpg"],
         title: "Ilmu Komputer",
         description:
           "Ilmu komputer adalah program studi yang mempelajari bagaimana cara membuat dan mengelola perangkat lunak (software), perangkat keras (hardware), serta sistem komputer secara keseluruhan...",
@@ -154,7 +154,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 4,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/teknik_kedokteran.jpg"],
         title: "Ilmu Kedokteran",
         description:
           "Ilmu kedokteran adalah bidang studi yang mempersiapkan mahasiswa untuk menjadi dokter yang kompeten dalam mendiagnosis, merawat, dan mengobati pasien...",
@@ -207,7 +207,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 5,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/keperawatan.jpg"],
         title: "Keperawatan",
         description:
           "Keperawatan adalah program studi yang mempersiapkan mahasiswa untuk menjadi perawat profesional yang memiliki keterampilan dalam merawat dan membantu pasien di rumah sakit, puskesmas, atau lingkungan lainnya. Keperawatan menggabungkan ilmu kesehatan, psikologi, dan keterampilan klinis untuk memberikan perawatan yang optimal kepada pasien.",
@@ -251,7 +251,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 6,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/matematika.jpg"],
         title: "Matematika",
         description:
           "Program studi matematika fokus pada pemahaman teori dan aplikasi matematika di berbagai bidang, mulai dari statistik, aljabar, kalkulus, hingga topologi dan analisis matematis.",
@@ -289,7 +289,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 7,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/teknik_elektro.jpg"],
         title: "Teknik Elektro",
         description:
           "Teknik elektro adalah disiplin ilmu yang berkaitan dengan perancangan, pengembangan, dan pengoperasian sistem elektronik dan kelistrikan.",
@@ -330,7 +330,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 8,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/teknik_kelautan.jpg"],
         title: "Teknik Kelautan",
         description:
           "Teknik kelautan adalah cabang teknik yang berfokus pada desain, konstruksi, dan pemeliharaan infrastruktur yang berhubungan dengan laut. Ini mencakup proyek-proyek besar seperti pelabuhan, pembangkit listrik tenaga laut, eksplorasi sumber daya alam di laut, serta penelitian dan pengelolaan lingkungan laut.",
@@ -381,7 +381,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 9,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/teknik_sipil.jpg"],
         title: "Teknik Sipil",
         description:
           "Teknik sipil adalah bidang studi yang berfokus pada perencanaan, desain, konstruksi, dan pemeliharaan infrastruktur publik seperti jalan raya, jembatan, gedung, bendungan, sistem saluran air, dan fasilitas lainnya.",
@@ -424,7 +424,7 @@ const getMajor = (request, h) => {
       },
       {
         id: 10,
-        image: [],
+        image: ["https://storage.googleapis.com/jurusan/teknologi_pangan.jpg"],
         title: "Teknologi Pangan",
         description:
           "Teknologi pangan adalah bidang studi yang mempelajari proses pengolahan, pengawetan, distribusi, dan konsumsi pangan dengan fokus pada penerapan ilmu dan teknologi untuk meningkatkan kualitas dan keamanan produk makanan.",
