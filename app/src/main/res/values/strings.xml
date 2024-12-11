@@ -2,7 +2,7 @@
     // primary
     <string name="app_name">Match My Major</string>
     <string name="title_home">Home</string>
-    <string name="api_key">AIzaSyCFgu0AFYbiGJ-zRh0aAd4UKfbQb7ci1Us</string>
+    <string name="api_key">AIzaSyDpZSfgLeoCougmCtpdkuVZWDVHtZxKR0c</string>
     <string name="your_web_client_id">91863989930-r33tdk7l88vlepurejm6aamnsglk8ogt.apps.googleusercontent.com</string>
 
     <string name="title_dashboard">Dashboard</string>
@@ -51,7 +51,7 @@
     <string name="dev_lead">Marcello Jayekto - Mobile Dev Lead</string>
     <string name="ml_lead">Muhammad Arief Rachman - ML Lead</string>
     <string name="resource_manager">Na’imatul Lu’lu’a - Resource Manager</string>
-    <string name="github_and_repository_manager">Florencia Yang - Github And Repository Manager></string>
+    <string name="github_and_repository_manager">Florencia Yang - Github And Repository Manager</string>
     <string name="cloud_comp_lead">M. Naufal Rafy G - Cloud Comp Lead</string>
     <string name="resource_manager_2">Geta Gabriela Merru - Resource Manager</string>
     // chatbot
@@ -143,6 +143,7 @@
     <string name="language">Language</string>
     <string name="version_app">V 1.0</string>
     <string name="note">Note</string>
+    <string name="your_top_major_predict">Your Top Major Predict</string>
 
 
 </resources>

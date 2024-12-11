@@ -13,4 +13,12 @@ class UserDataRepository(private val userDataDao: UserDataDao) {
     fun getAllUserData(): LiveData<List<UserData>> {
         return userDataDao.getAllData()
     }
+
+    fun getAllPredictedValues(): LiveData<List<String>> {
+        return userDataDao.getAllPredictedValues()
+    }
+
+    suspend fun deleteAllUserData() {
+        userDataDao.deleteAllData()
+    }
 }

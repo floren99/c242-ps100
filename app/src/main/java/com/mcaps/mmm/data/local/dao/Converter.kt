@@ -7,7 +7,6 @@ import java.util.Date
 
 class Converters {
 
-    // Convert List<Int> to String and back
     @TypeConverter
     fun fromString(value: String): List<Int> {
         val listType = object : TypeToken<List<Int>>() {}.type
@@ -19,7 +18,6 @@ class Converters {
         return Gson().toJson(list)
     }
 
-    // Convert Date to Long (timestamp) and back
     @TypeConverter
     fun fromDate(value: Long): Date {
         return Date(value)

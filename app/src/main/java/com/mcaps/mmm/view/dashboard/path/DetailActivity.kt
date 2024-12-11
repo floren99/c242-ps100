@@ -30,13 +30,13 @@ class DetailActivity : AppCompatActivity() {
             binding.tvDetailTips.text = pathData.tips ?: "No tips available"
 
             binding.tvDetailUniversitas.text = if (pathData.universities.isNotEmpty()) {
-                pathData.universities.joinToString("\n") { "- ${it}" } // Menambahkan "-" sebelum setiap universitas
+                pathData.universities.joinToString("\n") { "- ${it}" }
             } else {
                 "No universities listed"
             }
 
             binding.tvDetailSkill.text = if (pathData.skillsRequired.isNotEmpty()) {
-                pathData.skillsRequired.joinToString("\n") { "- ${it}" } // Menambahkan "-" sebelum setiap skill
+                pathData.skillsRequired.joinToString("\n") { "- ${it}" }
             } else {
                 "No skills required listed"
             }

@@ -96,7 +96,7 @@
                             android:id="@+id/list_item_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/item_title"
+                            android:text="@string/your_top_major_predict"
                             android:textStyle="bold"
                             android:textColor="@color/colorOnPrimary"/>
 

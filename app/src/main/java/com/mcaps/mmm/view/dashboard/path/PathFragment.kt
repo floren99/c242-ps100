@@ -44,7 +44,7 @@ class PathFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        pathAdapter = PathAdapter(requireContext()) // Initialize your adapter
+        pathAdapter = PathAdapter(requireContext())
         binding.rvPaths.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = pathAdapter
@@ -61,7 +61,7 @@ class PathFragment : Fragment() {
 
     private fun observeViewModel() {
         pathViewModel.pathList.observe(viewLifecycleOwner, Observer { paths ->
-            pathAdapter.submitList(paths) // Update adapter with new data
+            pathAdapter.submitList(paths)
         })
 
         pathViewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->

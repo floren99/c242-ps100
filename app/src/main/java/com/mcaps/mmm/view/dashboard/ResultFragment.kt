@@ -31,7 +31,7 @@ class ResultFragment : DialogFragment() {
                 "Teknik Kelautan" -> R.drawable.lg_teknik_kelautan
                 "Teknik Sipil" -> R.drawable.lg_teknik_sipil
                 "Teknologi Pangan" -> R.drawable.lg_teknologi_pangan
-                else -> R.drawable.ic_baseline_android_24 // Default image
+                else -> R.drawable.ic_baseline_android_24
             }
             args.putInt("IMAGE_RES_ID", imageResId)
             fragment.arguments = args

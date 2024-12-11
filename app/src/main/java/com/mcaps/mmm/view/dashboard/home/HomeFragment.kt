@@ -32,8 +32,8 @@ class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by lazy {
         ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[HomeViewModel::class.java]
     }
-    private val pathViewModel: PathViewModel by lazy {
-        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[PathViewModel::class.java]
+    private val testViewModel: TestViewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[TestViewModel::class.java]
     }
 
     private var _binding: FragmentHomeBinding? = null
@@ -41,6 +41,7 @@ class HomeFragment : Fragment() {
 
     private var email = ""
     private var username = ""
+    private var topPredictValue = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -58,6 +59,7 @@ class HomeFragment : Fragment() {
             val intent = Intent(activity, MenuActivity::class.java)
             intent.putExtra("email", email)
             intent.putExtra("username", username)
+            intent.putExtra("topPredict", topPredictValue)
             startActivity(intent)
         }
 
@@ -65,6 +67,14 @@ class HomeFragment : Fragment() {
             username = userModel.username
             email = userModel.email
             binding.usernameHome.text = username
+        }
+
+        testViewModel.getMostFrequentPredictedValue()
+
+        testViewModel.frequentPredictedValue.observe(viewLifecycleOwner) { mostFrequentValue ->
+            topPredictValue = mostFrequentValue ?: "No Data"
+            val topPredict = "Top Predict: $mostFrequentValue"
+            binding.freqMajor.text = topPredict
         }
     }
 

@@ -12,6 +12,9 @@ interface UserDataDao {
     @Insert
     suspend fun insertUserData(userData: UserData)
 
+    @Query("SELECT predictedValue FROM user_data")
+    fun getAllPredictedValues(): LiveData<List<String>>
+
     @Query("SELECT * FROM user_data")
     fun getAllData(): LiveData<List<UserData>>
 
@@ -20,4 +23,7 @@ interface UserDataDao {
 
     @Query("DELETE FROM user_data WHERE id = :id")
     suspend fun deleteUserData(id: Long)
+
+    @Query("DELETE FROM user_data")
+    suspend fun deleteAllData()
 }

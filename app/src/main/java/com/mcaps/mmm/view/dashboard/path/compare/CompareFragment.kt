@@ -71,7 +71,6 @@ class CompareFragment : BottomSheetDialogFragment() {
             val major1 = majors[selectedMajor1]
             val major2 = majors[selectedMajor2]
 
-            // Pass the correct compareType and majors to the ComparisonDialogFragment
             ComparisonDialogFragment.newInstance(compareType, major1, major2)
                 .show(parentFragmentManager, "ComparisonDialogFragment")
         } else {

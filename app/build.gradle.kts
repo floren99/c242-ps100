@@ -89,7 +89,7 @@ dependencies {
     annotationProcessor(libs.compiler)
     implementation(libs.gson)
     implementation(libs.circleimageview)
-
+    implementation(libs.generativeai)
 
     implementation (libs.androidx.room.runtime)
     kapt (libs.androidx.room.compiler)

@@ -34,7 +34,7 @@ class HistoryTestActivity : AppCompatActivity() {
 
         testViewModel.userHistory.observe(this, Observer { userDataList ->
             userDataList?.let {
-                historyAdapter = HistoryAdapter(it)
+                historyAdapter = HistoryAdapter(it.asReversed())
                 binding.rvHistory.adapter = historyAdapter
             }
         })

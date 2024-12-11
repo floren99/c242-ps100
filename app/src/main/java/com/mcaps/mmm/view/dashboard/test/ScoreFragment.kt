@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -40,16 +41,20 @@ class ScoreFragment : BottomSheetDialogFragment() {
             val chemScore = binding.editScoreChemistry.text.toString().toIntOrNull() ?: 0
             val engScore = binding.editScoreEnglish.text.toString().toIntOrNull() ?: 0
 
-            val scores = listOf(
-                mathScore,
-                bioScore,
-                physScore,
-                chemScore,
-                engScore
-            )
+            if (mathScore !in 0..100 || bioScore !in 0..100 || physScore !in 0..100 || chemScore !in 0..100 || engScore !in 0..100) {
+                Toast.makeText(requireContext(), "Score value must be between 0 and 100.", Toast.LENGTH_SHORT).show()
+            } else {
+                val scores = listOf(
+                    mathScore,
+                    bioScore,
+                    physScore,
+                    chemScore,
+                    engScore
+                )
 
-            sharedViewModel.updateScores(scores)
-            dismiss()
+                sharedViewModel.updateScores(scores)
+                dismiss()
+            }
         }
     }
 }

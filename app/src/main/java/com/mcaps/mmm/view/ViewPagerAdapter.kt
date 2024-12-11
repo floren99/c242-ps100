@@ -9,7 +9,7 @@ import com.mcaps.mmm.view.dashboard.path.PathFragment
 import com.mcaps.mmm.view.dashboard.discussion.DiscussionFragment
 
 class ViewPagerAdapter(activity: FragmentActivity) : FragmentStateAdapter(activity) {
-    override fun getItemCount(): Int = 4 // Number of fragments
+    override fun getItemCount(): Int = 4
 
     override fun createFragment(position: Int): Fragment {
         return when (position) {

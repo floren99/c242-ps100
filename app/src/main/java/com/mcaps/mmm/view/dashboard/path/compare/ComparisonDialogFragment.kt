@@ -37,7 +37,6 @@ class ComparisonDialogFragment : DialogFragment() {
             val title1: String
             val title2: String
 
-            // Determine the content and titles based on the compareType
             when (compareType) {
                 "Skills" -> {
                     content1 = major1.formattedSkillsRequired()
@@ -59,7 +58,6 @@ class ComparisonDialogFragment : DialogFragment() {
                 }
             }
 
-            // Set the title and the content of both majors
             binding.tvCompareTitle.text = title
             binding.tvCompareContent.text = content1
             binding.tvCompareContent2.text = content2

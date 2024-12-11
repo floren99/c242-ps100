@@ -19,7 +19,6 @@ class InterestFragment : BottomSheetDialogFragment() {
         ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[TestViewModel::class.java]
     }
 
-    // List of questions
     private val questions = listOf(
         "1. Apakah kamu mempunyai ketertarikan dalam hal pemrograman?",
         "2. Apakah kamu mempunyai ketertarikan dalam hal analisis data?",
@@ -30,7 +29,6 @@ class InterestFragment : BottomSheetDialogFragment() {
         "7. Apakah kamu mempunyai ketertarikan dalam hal pekerjaan praktik?"
     )
 
-    // Answers storage; -1 indicates unanswered
     private val answers = MutableList(questions.size) { -1 }
     private var currentQuestionIndex = 0
 
@@ -61,7 +59,6 @@ class InterestFragment : BottomSheetDialogFragment() {
                 currentQuestionIndex++
                 updateQuestion()
             } else {
-                // Save answers in ViewModel and dismiss
                 sharedViewModel.updateMinat(answers)
                 dismiss()
             }
@@ -70,15 +67,13 @@ class InterestFragment : BottomSheetDialogFragment() {
 
     private fun updateQuestion() {
         binding.questionTextView.text = questions[currentQuestionIndex]
-
-        // Reset RadioGroup and restore the saved answer
         binding.answerRadioGroup.clearCheck()
+
         when (answers[currentQuestionIndex]) {
             0 -> binding.radioNo.isChecked = true
             1 -> binding.radioYes.isChecked = true
         }
 
-        // Update button states
         binding.prevButton.isEnabled = currentQuestionIndex > 0
         binding.nextButton.text = if (currentQuestionIndex == questions.size - 1) "Submit" else "Next"
     }

@@ -65,11 +65,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/colorOnSecondary"
             android:text="@string/previous"
             android:enabled="false" />
 
         <Button
             android:id="@+id/nextButton"
+            android:backgroundTint="@color/colorSecondary"
+            android:textColor="@color/colorOnSecondary"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

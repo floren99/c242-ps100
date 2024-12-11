@@ -142,7 +142,8 @@
     <string name="theme">Tema</string>
     <string name="language">Bahasa</string>
     <string name="version_app">V 1.0</string>
-    <string name="note">Note</string>
+    <string name="note">Catatan</string>
+    <string name="your_top_major_predict">Top Prediksi Jurusan Kamu</string>
 
 
 </resources>

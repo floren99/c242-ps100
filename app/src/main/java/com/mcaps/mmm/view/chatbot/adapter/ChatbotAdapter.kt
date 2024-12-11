@@ -31,7 +31,6 @@ class GeminiAdapter(var context: Context, var list: ArrayList<DataResponse>,
             val data = list[position]
 
             if (data.isLoading) {
-                // Tampilkan animasi loading dengan titik-titik berjalan
                 animateLoadingDots()
                 image.visibility = View.GONE
             } else {

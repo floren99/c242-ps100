@@ -40,10 +40,55 @@ class TestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel.scores.observe(viewLifecycleOwner) { scores ->
-            binding.done1.text = "Done"
+            if (scores.isNotEmpty()) {
+                binding.done1.text = "Done"
+            } else  {
+                binding.done1.text = "Empty"
+            }
         }
+
+        sharedViewModel.quiz1.observe(viewLifecycleOwner) { quiz1 ->
+            if (quiz1 != 0) {
+                binding.done2.text = "Latest Result : " + "${quiz1}"
+                binding.quizBtn1.text = "Retake"
+            } else {
+                binding.done2.text = "Empty"
+            }
+        }
+
+        sharedViewModel.quiz2.observe(viewLifecycleOwner) { quiz2 ->
+            if (quiz2 != 0) {
+                binding.done3.text = "Latest Result : " + "${quiz2}"
+                binding.quizBtn2.text = "Retake"
+            } else {
+                binding.done3.text = "Empty"
+            }
+        }
+
+        sharedViewModel.quiz3.observe(viewLifecycleOwner) { quiz3 ->
+            if (quiz3 != 0) {
+                binding.done4.text = "Latest Result : " + "${quiz3}"
+                binding.quizBtn3.text = "Retake"
+            } else {
+                binding.done4.text = "Empty"
+            }
+        }
+
+        sharedViewModel.quiz4.observe(viewLifecycleOwner) { quiz4 ->
+            if (quiz4 != 0) {
+                binding.done5.text = "Latest Result : " + "${quiz4}"
+                binding.quizBtn4.text = "Retake"
+            } else {
+                binding.done5.text = "Empty"
+            }
+        }
+
         sharedViewModel.minat.observe(viewLifecycleOwner) { minat ->
-            binding.done6.text = "Done"
+            if (minat.isNotEmpty()) {
+                binding.done6.text = "Done"
+            } else  {
+                binding.done6.text = "Empty"
+            }
         }
 
         sharedViewModel.answers.let { answers ->

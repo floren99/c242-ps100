@@ -28,7 +28,7 @@ class ProfileViewModel(private val userRepository: UserRepository) : ViewModel()
                     profileImageUri = profileImageUri
                 )
                 userRepository.saveSession(updatedUser)
-                _user.value = updatedUser  // Update UI dengan data terbaru
+                _user.value = updatedUser
             }
         }
     }

@@ -20,6 +20,7 @@ import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.auth.login.LoginActivity
 import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.chatbot.ChatbotActivity
+import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.menu.profile.ProfileActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -33,6 +34,7 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
     private lateinit var mainViewModel: MainViewModel
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var testViewModel: TestViewModel
 
     @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,21 +44,24 @@ class MenuActivity : AppCompatActivity() {
 
         val pref = SettingPreferences.getInstance(this.themeDataStore)
         mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
+        testViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(TestViewModel::class.java)
+        loginViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(LoginViewModel::class.java)
 
         val email = intent.getStringExtra("email")
         val username = intent.getStringExtra("username")
+        val topPredict = intent.getStringExtra("topPredict")
 
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive ->
             binding.themeSwitch.isChecked = isDarkModeActive
         }
 
-        loginViewModel = ViewModelProvider(this, ViewModelFactory.getInstance(this)).get(LoginViewModel::class.java)
-
         binding.username.text = username
         binding.email.text = email
+        binding.listItemSubtitle.text = topPredict
 
         binding.btnSignoutMenu.setOnClickListener {
             loginViewModel.logout()
+            testViewModel.deleteAllUserData()
             Toast.makeText(this, "Logged out", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, LoginActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

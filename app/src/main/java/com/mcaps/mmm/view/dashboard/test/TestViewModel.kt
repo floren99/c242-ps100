@@ -37,6 +37,9 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
     private val _quiz4 = MutableLiveData<Int>().apply { value = 0 }
     val quiz4: LiveData<Int> get() = _quiz4
 
+    private val _frequentPredictedValue = MutableLiveData<String?>().apply { value = "" }
+    val frequentPredictedValue: LiveData<String?> get() = _frequentPredictedValue
+
     val userHistory: LiveData<List<UserData>> = userDataRepository.getAllUserData()
 
     init {
@@ -140,6 +143,22 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
         viewModelScope.launch {
             userDataRepository.getAllUserData()
         }
+    }
+
+    fun deleteAllUserData() {
+        viewModelScope.launch {
+            userDataRepository.deleteAllUserData()
+        }
+    }
+
+    fun getMostFrequentPredictedValue() {
+        userDataRepository.getAllPredictedValues().observeForever { predictedValues ->
+            _frequentPredictedValue.postValue(getMostFrequentValue(predictedValues))
+        }
+    }
+
+    private fun getMostFrequentValue(values: List<String>): String {
+        return values.groupingBy { it }.eachCount().maxByOrNull { it.value }?.key ?: "No data"
     }
 
     suspend fun predict(input : PredictRequest): PredictResponse {
