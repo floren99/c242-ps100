@@ -27,6 +27,6 @@
     <fragment
         android:id="@+id/navigation_discussion"
         android:name="com.mcaps.mmm.view.dashboard.discussion.DiscussionFragment"
-        android:label="Menu"
+        android:label="Note"
         tools:layout="@layout/fragment_path" />
 </navigation>

@@ -12,7 +12,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Yuk Masukkan Nilai Kamu"
+        android:text="@string/enter_value"
         android:textColor="@color/colorOnSecondary"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Math"
+        android:text="@string/math"
         android:textColor="@color/colorOnSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
@@ -54,7 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Biology"
+        android:text="@string/biology"
         android:textColor="@color/colorOnSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreMathCard" />
@@ -77,14 +77,12 @@
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- New sections for Physics, Chemistry, and English -->
-
     <TextView
         android:id="@+id/score_physics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Physics"
+        android:text="@string/physics"
         android:textColor="@color/colorOnSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreBioCard" />
@@ -112,7 +110,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Chemistry"
+        android:text="@string/chemistry"
         android:textColor="@color/colorOnSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scorePhysicsCard" />
@@ -140,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="English"
+        android:text="@string/english"
         android:textColor="@color/colorOnSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scoreChemistryCard" />
@@ -183,9 +181,10 @@
         android:id="@+id/submit_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
+        android:text="@string/submit"
+        android:backgroundTint="@color/colorSecondary"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/scoreEnglishCard"
-        android:textColor="@color/colorSecondary"/>
+        android:textColor="@color/colorOnPrimary"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,9 +47,8 @@ data class MajorDataItem(
 	val tips: String? = null
 ) : Parcelable {
 
-	// Mengubah List menjadi String dengan format baru
 	fun formattedSkillsRequired(): String {
-		return skillsRequired.joinToString(separator = "\n- ", prefix = "- ")
+		return skillsRequired.joinToString(separator = "\n- ", prefix = "\n- ")
 	}
 
 	fun formattedUniversities(): String {
@@ -57,7 +56,7 @@ data class MajorDataItem(
 	}
 
 	fun formattedCareerProspects(): String {
-		return careerProspects.joinToString(separator = "\n- ", prefix = "- ") { item ->
+		return careerProspects.joinToString(separator = "\n- ", prefix = "\n- ") { item ->
 			"${item.careerName}: ${item.salaryRange}\n${item.description}"
 		}
 	}

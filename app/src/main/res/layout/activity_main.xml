@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- ViewPager2 for Fragment Switching -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager"
         android:layout_width="0dp"
@@ -17,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <!-- Bottom Navigation Bar -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -39,51 +37,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:contentDescription="@string/fab_chatbot_desc"
+        android:contentDescription="@string/chatbot"
         android:src="@drawable/ic_question"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
-        app:backgroundTint="@color/colorPrimary" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabCompare"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:contentDescription="Compare"
-        android:src="@drawable/ic_baseline_compare_arrows_24"
-        app:layout_constraintBottom_toTopOf="@id/chatbot"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"/>
-
-    <ImageView
-        android:id="@+id/shape1"
-        android:layout_width="261dp"
-        android:layout_height="350dp"
-        android:src="@drawable/shape1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="-90dp"
-        android:layout_marginStart="200dp" />
-
-    <ImageView
-        android:id="@+id/shape2"
-        android:layout_width="258dp"
-        android:layout_height="350dp"
-        android:src="@drawable/shape1"
-        app:layout_constraintTop_toBottomOf="@+id/shape1"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="120dp"
-        android:layout_marginStart="-100dp"/>
-
-    <ImageView
-        android:id="@+id/shape3"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/shape1"
-        app:layout_constraintTop_toBottomOf="@+id/fabCompare"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="-20dp"/>
+        app:backgroundTint="@color/colorPrimary2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

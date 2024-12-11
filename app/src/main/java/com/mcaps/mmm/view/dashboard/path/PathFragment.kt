@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity.RESULT_OK
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.mcaps.mmm.databinding.FragmentPathBinding
 import com.mcaps.mmm.view.MainActivity
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.dashboard.path.compare.CompareFragment
 import kotlinx.coroutines.launch
 
 class PathFragment : Fragment() {
@@ -24,8 +26,8 @@ class PathFragment : Fragment() {
     private var _binding: FragmentPathBinding? = null
     private val binding get() = _binding!!
 
-    private val pathViewModel: PathViewModel by lazy {
-        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[PathViewModel::class.java]
+    private val pathViewModel: PathViewModel by activityViewModels {
+        ViewModelFactory.getInstance(requireContext())
     }
 
     private lateinit var pathAdapter: PathAdapter
@@ -46,6 +48,11 @@ class PathFragment : Fragment() {
         binding.rvPaths.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = pathAdapter
+        }
+
+        binding.compareButton.setOnClickListener{
+            val compareFragment = CompareFragment()
+            compareFragment.show(parentFragmentManager, "CompareFragment")
         }
 
         observeViewModel()
@@ -82,17 +89,5 @@ class PathFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
-
-    override fun onResume() {
-        super.onResume()
-        // Make the button visible in MainActivity
-        (activity as? MainActivity)?.buttonCompareVisibility(true)
-    }
-
-    override fun onPause() {
-        super.onPause()
-        // Optionally, hide the button when the fragment is paused
-        (activity as? MainActivity)?.buttonCompareVisibility(false)
     }
 }

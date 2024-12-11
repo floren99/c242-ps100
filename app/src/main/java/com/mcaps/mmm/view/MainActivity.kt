@@ -15,7 +15,6 @@ import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.dataStore
 import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.chatbot.ChatbotActivity
-import com.mcaps.mmm.view.question.QuestionActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,7 +28,6 @@ class MainActivity : AppCompatActivity() {
         val pref = SettingPreferences.getInstance(application.dataStore)
         val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
         val username = intent.getStringExtra("username")
-        binding.fabCompare.visibility = View.GONE
 
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
@@ -68,9 +66,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, ChatbotActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    fun buttonCompareVisibility(visible: Boolean) {
-        binding.fabCompare.visibility = if (visible) View.VISIBLE else View.GONE
     }
 }

@@ -3,16 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBackground"
+    android:background="@color/colorSecondary"
     android:padding="16dp"
     tools:context=".view.question.QuizActivity">
 
-    <!-- CardView for displaying questions and options -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="180dp"
         app:cardBackgroundColor="#FFFFFF"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp">
@@ -32,14 +31,14 @@
             android:padding="16dp"
             android:gravity="left">
 
-            <!-- Question Text -->
             <TextView
                 android:id="@+id/tvQuestion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pertanyaan muncul di sini"
+                android:text="@string/questions"
                 android:paddingHorizontal="8dp"
                 android:textColor="#000000"
+                android:fontFamily="@font/poppins_regular"
                 android:textSize="14sp"
                 android:justificationMode="inter_word"
                 android:gravity="left"/>
@@ -55,7 +54,8 @@
                     android:id="@+id/radioButtonA"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pilihan A"
+                    android:text="@string/a"
+                    android:textColor="@color/black"
                     android:paddingHorizontal="8dp"
                     android:textSize="14sp"
                     android:justificationMode="inter_word"
@@ -65,7 +65,8 @@
                     android:id="@+id/radioButtonB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pilihan B"
+                    android:text="@string/b"
+                    android:textColor="@color/black"
                     android:paddingHorizontal="8dp"
                     android:textSize="14sp"
                     android:justificationMode="inter_word"
@@ -75,7 +76,8 @@
                     android:id="@+id/radioButtonC"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pilihan C"
+                    android:text="@string/c"
+                    android:textColor="@color/black"
                     android:paddingHorizontal="8dp"
                     android:textSize="14sp"
                     android:justificationMode="inter_word"
@@ -85,7 +87,8 @@
                     android:id="@+id/radioButtonD"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Pilihan D"
+                    android:text="@string/d"
+                    android:textColor="@color/black"
                     android:paddingHorizontal="8dp"
                     android:textSize="14sp"
                     android:justificationMode="inter_word"
@@ -95,7 +98,6 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <!-- Button Layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -103,33 +105,30 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="3">
+        android:weightSum="2">
 
-        <!-- Back Button -->
         <Button
             android:id="@+id/btnBack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:text="Back" />
+            android:text="@string/back" />
 
-        <!-- Next Button -->
         <Button
             android:id="@+id/btnNext"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginEnd="8dp"
-            android:text="Next" />
+            android:text="@string/next" />
 
-        <!-- End Test Button -->
         <Button
             android:id="@+id/btnEndTest"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:visibility="gone"
-            android:text="End Test" />
+            android:text="@string/end_test" />
     </LinearLayout>
 </RelativeLayout>

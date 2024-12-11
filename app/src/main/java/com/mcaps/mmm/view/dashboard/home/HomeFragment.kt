@@ -25,7 +25,6 @@ import com.mcaps.mmm.view.dashboard.path.DetailActivity
 import com.mcaps.mmm.view.dashboard.path.PathViewModel
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.menu.MenuActivity
-import com.mcaps.mmm.view.question.QuestionActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

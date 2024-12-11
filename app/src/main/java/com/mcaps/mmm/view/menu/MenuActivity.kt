@@ -2,6 +2,7 @@ package com.mcaps.mmm.view.menu
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
@@ -71,6 +72,11 @@ class MenuActivity : AppCompatActivity() {
 
         binding.aboutUs.setOnClickListener{
             val intent = Intent(this, AboutActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.language.setOnClickListener {
+            val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
             startActivity(intent)
         }
 
