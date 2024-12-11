@@ -29,7 +29,7 @@
                     android:id="@+id/profile_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_people_black_24dp"
+                    android:src="@drawable/mmm_dashboard"
                     android:contentDescription="Profile Picture"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="16dp"
@@ -62,7 +62,6 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <!-- Top 3 Jurusan -->
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -83,7 +82,7 @@
                     <View
                         android:layout_width="10dp"
                         android:layout_height="10dp"
-                        android:background="@drawable/ic_dashboard_black_24dp"
+                        android:background="@drawable/mmm_dashboard"
                         android:layout_gravity="center_vertical"
                         android:layout_marginEnd="16dp" />
 
@@ -97,7 +96,7 @@
                             android:id="@+id/list_item_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Item Title"
+                            android:text="@string/your_top_major_predict"
                             android:textStyle="bold"
                             android:textColor="@color/colorOnPrimary"/>
 
@@ -105,12 +104,11 @@
                             android:id="@+id/list_item_subtitle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Item subtitle"
+                            android:text="@string/item_subtitle"
                             android:textColor="@color/colorOnPrimary"
                             android:textSize="12sp" />
                     </LinearLayout>
                 </LinearLayout>
-                <!-- Repeat above LinearLayout for each list item -->
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -131,7 +129,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="My Profile"
+                    android:text="@string/my_profile"
                     android:textColor="@color/colorOnPrimary"/>
 
                 <TextView
@@ -139,7 +137,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Privacy and Security"
+                    android:text="@string/privacy_and_security"
                     android:textColor="@color/colorOnPrimary"/>
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
@@ -147,7 +145,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Theme"
+                    android:text="@string/theme"
                     android:textColor="@color/colorOnPrimary"/>
 
                 <TextView
@@ -155,7 +153,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="Language"
+                    android:text="@string/language"
                     android:textColor="@color/colorOnPrimary"/>
 
                 <TextView
@@ -163,7 +161,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="16dp"
-                    android:text="About Us"
+                    android:text="@string/about_us"
                     android:textColor="@color/colorOnPrimary"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -171,14 +169,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Match My Major"
+            android:text="@string/app_name"
             android:textAlignment="center"
             android:textSize="12sp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="V 1.0"
+            android:text="@string/version_app"
             android:textAlignment="center"
             android:textSize="12sp"/>
 

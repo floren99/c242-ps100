@@ -68,7 +68,7 @@ class QuizViewModel(
                 _correctAnswersCount.value = (_correctAnswersCount.value ?: 0) + 1
             }
 
-            quizResults[quizType] = updatedQuestions // Store updated answers for the specific quiz type
+            quizResults[quizType] = updatedQuestions
         }
     }
 

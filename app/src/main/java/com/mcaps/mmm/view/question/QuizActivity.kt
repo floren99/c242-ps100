@@ -52,7 +52,6 @@ class QuizActivity : AppCompatActivity() {
     }
 
     private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = "Quiz"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

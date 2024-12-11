@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="100dp"
+    android:height="100dp"
+    android:viewportWidth="100"
+    android:viewportHeight="100">
+
+    <!-- Lingkaran dengan opacity 50% -->
+    <path
+        android:fillColor="@color/shape1"
+    android:pathData="M50,0 A50,50 0 1,1 49.9,0 Z" />
+</vector>

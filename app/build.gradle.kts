@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
+    id ("kotlin-parcelize")
     //id("com.google.gms.google-services") version "4.4.2"
 }
 
@@ -87,6 +88,8 @@ dependencies {
     implementation(libs.glide)
     annotationProcessor(libs.compiler)
     implementation(libs.gson)
+    implementation(libs.circleimageview)
+    implementation(libs.generativeai)
 
     implementation (libs.androidx.room.runtime)
     kapt (libs.androidx.room.compiler)

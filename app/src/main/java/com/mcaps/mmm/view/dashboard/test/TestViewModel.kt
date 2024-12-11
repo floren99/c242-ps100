@@ -6,14 +6,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mcaps.mmm.data.api.response.PredictResponse
+import com.mcaps.mmm.data.local.dao.UserDataDao
+import com.mcaps.mmm.data.local.entity.UserData
 import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.data.pref.TestPreference
 import com.mcaps.mmm.data.repository.MajorRepository
 import com.mcaps.mmm.data.repository.PredictRepository
+import com.mcaps.mmm.data.repository.UserDataRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import java.util.Date
 
-class TestViewModel (private val predictRepository: PredictRepository, private val testPreference: TestPreference): ViewModel() {
+class TestViewModel (private val predictRepository: PredictRepository, private val testPreference: TestPreference, private val userDataRepository: UserDataRepository): ViewModel() {
 
     private val _scores = MutableLiveData<List<Int>>().apply { value = emptyList() }
     val scores: LiveData<List<Int>> get() = _scores
@@ -32,6 +36,11 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
 
     private val _quiz4 = MutableLiveData<Int>().apply { value = 0 }
     val quiz4: LiveData<Int> get() = _quiz4
+
+    private val _frequentPredictedValue = MutableLiveData<String?>().apply { value = "" }
+    val frequentPredictedValue: LiveData<String?> get() = _frequentPredictedValue
+
+    val userHistory: LiveData<List<UserData>> = userDataRepository.getAllUserData()
 
     init {
         viewModelScope.launch {
@@ -113,8 +122,46 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
         return answers
     }
 
+    fun saveDataToDatabase(predictedValue: String) {
+        val userData = UserData(
+            score = _scores.value ?: emptyList(),
+            quiz1 = _quiz1.value ?: 0,
+            quiz2 = _quiz2.value ?: 0,
+            quiz3 = _quiz3.value ?: 0,
+            quiz4 = _quiz4.value ?: 0,
+            interest = _minat.value ?: emptyList(),
+            predictedValue = predictedValue,
+            date = Date()
+        )
+
+        viewModelScope.launch {
+            userDataRepository.insertUserData(userData)
+        }
+    }
+
+    suspend fun getAllDaoData(){
+        viewModelScope.launch {
+            userDataRepository.getAllUserData()
+        }
+    }
+
+    fun deleteAllUserData() {
+        viewModelScope.launch {
+            userDataRepository.deleteAllUserData()
+        }
+    }
+
+    fun getMostFrequentPredictedValue() {
+        userDataRepository.getAllPredictedValues().observeForever { predictedValues ->
+            _frequentPredictedValue.postValue(getMostFrequentValue(predictedValues))
+        }
+    }
+
+    private fun getMostFrequentValue(values: List<String>): String {
+        return values.groupingBy { it }.eachCount().maxByOrNull { it.value }?.key ?: "No data"
+    }
+
     suspend fun predict(input : PredictRequest): PredictResponse {
         return predictRepository.predict(input)
     }
-
 }

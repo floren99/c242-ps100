@@ -2,6 +2,7 @@ package com.mcaps.mmm.view
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +15,6 @@ import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.dataStore
 import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.chatbot.ChatbotActivity
-import com.mcaps.mmm.view.question.QuestionActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
         val pref = SettingPreferences.getInstance(application.dataStore)
         val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref)).get(MainViewModel::class.java)
+        val username = intent.getStringExtra("username")
 
         mainViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
@@ -36,15 +37,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Setup ViewPager2
+        mainViewModel.saveUsername(username ?: "User")
+
         val viewPager: ViewPager2 = binding.viewPager
         val navView: BottomNavigationView = binding.navView
 
-        // Set adapter for ViewPager2
         val adapter = ViewPagerAdapter(this)
         viewPager.adapter = adapter
 
-        // Sync BottomNavigationView with ViewPager2
         navView.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navigation_home -> viewPager.setCurrentItem(0, true)
@@ -55,7 +55,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        // Sync ViewPager2 with BottomNavigationView
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)

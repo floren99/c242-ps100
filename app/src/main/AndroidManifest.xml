@@ -13,13 +13,16 @@
         android:theme="@style/Theme.MMM"
         tools:targetApi="31">
         <activity
+            android:name=".view.menu.AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.dashboard.test.history.HistoryTestActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.dashboard.path.DetailActivity"
             android:exported="false" />
         <activity
             android:name=".view.chatbot.ChatbotActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.dashboard.path.DetailPathActivity"
             android:exported="false" />
         <activity
             android:name=".view.menu.profile.ProfileActivity"
@@ -32,9 +35,6 @@
             android:exported="false" />
         <activity
             android:name=".view.question.QuizActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.question.QuestionActivity"
             android:exported="false" />
         <activity
             android:name=".view.welcome.SplashActivity"
@@ -50,8 +50,7 @@
             android:exported="false" />
         <activity
             android:name=".view.MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
     </application>
 
 </manifest>

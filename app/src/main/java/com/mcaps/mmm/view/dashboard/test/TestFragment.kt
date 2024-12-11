@@ -9,10 +9,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.mcaps.mmm.R
 import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.databinding.FragmentTestBinding
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.dashboard.ResultFragment
+import com.mcaps.mmm.view.dashboard.test.history.HistoryTestActivity
 import com.mcaps.mmm.view.question.QuizActivity
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class TestFragment : Fragment() {
@@ -36,13 +40,54 @@ class TestFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         sharedViewModel.scores.observe(viewLifecycleOwner) { scores ->
-            binding.textTestHasil.text = scores.joinToString(", ") {
-                "${it}"
+            if (scores.isNotEmpty()) {
+                binding.done1.text = "Done"
+            } else  {
+                binding.done1.text = "Empty"
             }
         }
+
+        sharedViewModel.quiz1.observe(viewLifecycleOwner) { quiz1 ->
+            if (quiz1 != 0) {
+                binding.done2.text = "Latest Result : " + "${quiz1}"
+                binding.quizBtn1.text = "Retake"
+            } else {
+                binding.done2.text = "Empty"
+            }
+        }
+
+        sharedViewModel.quiz2.observe(viewLifecycleOwner) { quiz2 ->
+            if (quiz2 != 0) {
+                binding.done3.text = "Latest Result : " + "${quiz2}"
+                binding.quizBtn2.text = "Retake"
+            } else {
+                binding.done3.text = "Empty"
+            }
+        }
+
+        sharedViewModel.quiz3.observe(viewLifecycleOwner) { quiz3 ->
+            if (quiz3 != 0) {
+                binding.done4.text = "Latest Result : " + "${quiz3}"
+                binding.quizBtn3.text = "Retake"
+            } else {
+                binding.done4.text = "Empty"
+            }
+        }
+
+        sharedViewModel.quiz4.observe(viewLifecycleOwner) { quiz4 ->
+            if (quiz4 != 0) {
+                binding.done5.text = "Latest Result : " + "${quiz4}"
+                binding.quizBtn4.text = "Retake"
+            } else {
+                binding.done5.text = "Empty"
+            }
+        }
+
         sharedViewModel.minat.observe(viewLifecycleOwner) { minat ->
-            binding.textTestMinat.text = minat.joinToString(", "){
-                "${it}"
+            if (minat.isNotEmpty()) {
+                binding.done6.text = "Done"
+            } else  {
+                binding.done6.text = "Empty"
             }
         }
 
@@ -80,17 +125,30 @@ class TestFragment : Fragment() {
             intent.putExtra("QUIZ_ID", "4")
             startActivity(intent)
         }
+        binding.btnHistory.setOnClickListener{
+            val intent = Intent(activity, HistoryTestActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.buttonCek.setOnClickListener {
             val finalInput = sharedViewModel.getFinalInput()
             val request = PredictRequest(finalInput)
+
+            val loadingDialog = LoadingDialogFragment.newInstance()
+            loadingDialog.isCancelable = false
+            loadingDialog.show(parentFragmentManager, "LoadingDialog")
+
             viewLifecycleOwner.lifecycleScope.launch {
                 try {
+                    delay(3000)
                     val response = sharedViewModel.predict(request)
-                    Toast.makeText(requireContext(), "Prediksi berhasil", Toast.LENGTH_SHORT).show()
-                    println("Prediction response: $response")
+                    sharedViewModel.saveDataToDatabase("${response.predictedLabel}")
+                    loadingDialog.dismiss()
+                    val resultDialog = ResultFragment.newInstance("${response.predictedLabel}", R.drawable.ic_baseline_android_24)
+                    resultDialog.show(parentFragmentManager, "ResultDialog")
                 } catch (e: Exception) {
                     e.printStackTrace()
+                    loadingDialog.dismiss()
                 }
             }
         }

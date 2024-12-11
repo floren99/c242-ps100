@@ -10,12 +10,15 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity.RESULT_OK
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mcaps.mmm.databinding.FragmentPathBinding
+import com.mcaps.mmm.view.MainActivity
 import com.mcaps.mmm.view.ViewModelFactory
+import com.mcaps.mmm.view.dashboard.path.compare.CompareFragment
 import kotlinx.coroutines.launch
 
 class PathFragment : Fragment() {
@@ -23,11 +26,11 @@ class PathFragment : Fragment() {
     private var _binding: FragmentPathBinding? = null
     private val binding get() = _binding!!
 
-    private val pathViewModel: PathViewModel by lazy {
-        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[PathViewModel::class.java]
+    private val pathViewModel: PathViewModel by activityViewModels {
+        ViewModelFactory.getInstance(requireContext())
     }
 
-    private lateinit var pathAdapter: PathAdapter // Create an adapter for MajorDataItem
+    private lateinit var pathAdapter: PathAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -41,10 +44,15 @@ class PathFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        pathAdapter = PathAdapter(requireContext()) // Initialize your adapter
+        pathAdapter = PathAdapter(requireContext())
         binding.rvPaths.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = pathAdapter
+        }
+
+        binding.compareButton.setOnClickListener{
+            val compareFragment = CompareFragment()
+            compareFragment.show(parentFragmentManager, "CompareFragment")
         }
 
         observeViewModel()
@@ -53,7 +61,7 @@ class PathFragment : Fragment() {
 
     private fun observeViewModel() {
         pathViewModel.pathList.observe(viewLifecycleOwner, Observer { paths ->
-            pathAdapter.submitList(paths) // Update adapter with new data
+            pathAdapter.submitList(paths)
         })
 
         pathViewModel.isLoading.observe(viewLifecycleOwner, Observer { isLoading ->

@@ -39,7 +39,6 @@ class TestPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    // Save and retrieve minat
     suspend fun saveMinat(minat: List<Int>) {
         val minatString = minat.joinToString(",")
         dataStore.edit { preferences ->
@@ -58,7 +57,6 @@ class TestPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
-    // Save and retrieve individual quiz scores
     suspend fun saveQuiz(quizKey: Preferences.Key<Int>, value: Int) {
         dataStore.edit { preferences ->
             preferences[quizKey] = value

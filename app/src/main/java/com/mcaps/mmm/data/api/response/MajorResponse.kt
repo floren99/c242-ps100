@@ -1,6 +1,9 @@
 package com.mcaps.mmm.data.api.response
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import kotlinx.parcelize.RawValue
 
 data class MajorResponse(
 
@@ -14,53 +17,68 @@ data class MajorResponse(
 	val message: String? = null
 )
 
-data class WebLinksItem(
-
-	@field:SerializedName("title")
-	val title: String? = null,
-
-	@field:SerializedName("url")
-	val url: String? = null
-)
-
-data class CareerProspectsItem(
-
-	@field:SerializedName("salaryRange")
-	val salaryRange: String? = null,
-
-	@field:SerializedName("description")
-	val description: String? = null,
-
-	@field:SerializedName("careerName")
-	val careerName: String? = null
-)
-
+@Parcelize
 data class MajorDataItem(
+	@SerializedName("image")
+	val image: List<String> = emptyList(),
 
-	@field:SerializedName("image")
-	val image: List<Any> = emptyList(),
-
-	@field:SerializedName("skillsRequired")
+	@SerializedName("skillsRequired")
 	val skillsRequired: List<String> = emptyList(),
 
-	@field:SerializedName("universities")
+	@SerializedName("universities")
 	val universities: List<String> = emptyList(),
 
-	@field:SerializedName("description")
+	@SerializedName("description")
 	val description: String? = null,
 
-	@field:SerializedName("webLinks")
+	@SerializedName("webLinks")
 	val webLinks: List<WebLinksItem> = emptyList(),
 
-	@field:SerializedName("id")
+	@SerializedName("id")
 	val id: Int? = null,
 
-	@field:SerializedName("title")
+	@SerializedName("title")
 	val title: String? = null,
 
-	@field:SerializedName("careerProspects")
+	@SerializedName("careerProspects")
 	val careerProspects: List<CareerProspectsItem> = emptyList(),
 
-	@field:SerializedName("tips")
+	@SerializedName("tips")
 	val tips: String? = null
-)
+) : Parcelable {
+
+	fun formattedSkillsRequired(): String {
+		return skillsRequired.joinToString(separator = "\n- ", prefix = "\n- ")
+	}
+
+	fun formattedUniversities(): String {
+		return universities.joinToString(separator = "\n- ", prefix = "- ")
+	}
+
+	fun formattedCareerProspects(): String {
+		return careerProspects.joinToString(separator = "\n- ", prefix = "\n- ") { item ->
+			"${item.careerName}: ${item.salaryRange}\n${item.description}"
+		}
+	}
+
+	@Parcelize
+	data class WebLinksItem(
+		@SerializedName("title")
+		val title: String? = null,
+
+		@SerializedName("url")
+		val url: String? = null
+	) : Parcelable
+
+	@Parcelize
+	data class CareerProspectsItem(
+		@SerializedName("salaryRange")
+		val salaryRange: String? = null,
+
+		@SerializedName("description")
+		val description: String? = null,
+
+		@SerializedName("careerName")
+		val careerName: String? = null
+	) : Parcelable }
+

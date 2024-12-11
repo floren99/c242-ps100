@@ -64,7 +64,7 @@ class ChatbotActivity : AppCompatActivity() {
         clearImageButton = findViewById(R.id.clear_image_button)
         recyclerView = findViewById(R.id.recycler_view_id)
 
-        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)  // Set reverseLayout to true
+        recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true)
         adapter = GeminiAdapter(this, responseData, recyclerView)
         recyclerView.adapter = adapter
 
@@ -108,9 +108,12 @@ class ChatbotActivity : AppCompatActivity() {
             responseData.add(0, userMessage)
             adapter.notifyItemInserted(0)
 
-            recyclerView.post {
-                recyclerView.scrollToPosition(0)
-            }
+            recyclerView.post { recyclerView.scrollToPosition(0) }
+
+            val loadingMessage = DataResponse(1, "...", imageUri = "", isLoading = true)
+            responseData.add(0, loadingMessage)
+            adapter.notifyItemInserted(0)
+            recyclerView.post { recyclerView.scrollToPosition(0) }
 
             val inputContent = content {
                 if (bitmap != null) image(bitmap!!)
@@ -121,18 +124,20 @@ class ChatbotActivity : AppCompatActivity() {
                 val response = generativeModel.generateContent(inputContent)
 
                 runOnUiThread {
+                    responseData.removeAt(0)
+                    adapter.notifyItemRemoved(0)
+
                     val aiResponse = DataResponse(1, response.text ?: "", "")
                     responseData.add(0, aiResponse)
                     adapter.notifyItemInserted(0)
-                    recyclerView.post {
-                        recyclerView.scrollToPosition(0)
-                    }
+                    recyclerView.post { recyclerView.scrollToPosition(0) }
                 }
             }
         } else {
             Toast.makeText(this, "Please enter a message before sending", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun clearSelectedImage() {
         imageUri = ""

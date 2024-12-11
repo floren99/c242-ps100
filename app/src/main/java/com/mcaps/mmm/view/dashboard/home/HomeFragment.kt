@@ -2,21 +2,46 @@ package com.mcaps.mmm.view.dashboard.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.mcaps.mmm.R
 import com.mcaps.mmm.databinding.FragmentHomeBinding
+import com.mcaps.mmm.view.MainViewModel
+import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.auth.login.LoginActivity
+import com.mcaps.mmm.view.auth.login.LoginViewModel
+import com.mcaps.mmm.view.dashboard.path.DetailActivity
+import com.mcaps.mmm.view.dashboard.path.PathViewModel
+import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.menu.MenuActivity
-import com.mcaps.mmm.view.question.QuestionActivity
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() {
-    private val homeViewModel: HomeViewModel by viewModels()
+    private val homeViewModel: HomeViewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[HomeViewModel::class.java]
+    }
+    private val testViewModel: TestViewModel by lazy {
+        ViewModelProvider(this, ViewModelFactory.getInstance(requireContext()))[TestViewModel::class.java]
+    }
+
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
+
+    private var email = ""
+    private var username = ""
+    private var topPredictValue = ""
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -32,9 +57,27 @@ class HomeFragment : Fragment() {
 
         binding.menuButton.setOnClickListener{
             val intent = Intent(activity, MenuActivity::class.java)
+            intent.putExtra("email", email)
+            intent.putExtra("username", username)
+            intent.putExtra("topPredict", topPredictValue)
             startActivity(intent)
         }
+
+        homeViewModel.getUserSession().observe(viewLifecycleOwner) { userModel ->
+            username = userModel.username
+            email = userModel.email
+            binding.usernameHome.text = username
+        }
+
+        testViewModel.getMostFrequentPredictedValue()
+
+        testViewModel.frequentPredictedValue.observe(viewLifecycleOwner) { mostFrequentValue ->
+            topPredictValue = mostFrequentValue ?: "No Data"
+            val topPredict = "Top Predict: $mostFrequentValue"
+            binding.freqMajor.text = topPredict
+        }
     }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

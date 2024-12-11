@@ -1,0 +1,149 @@
+<resources>
+    // primary
+    <string name="app_name">Match My Major</string>
+    <string name="title_home">Beranda</string>
+    <string name="api_key">AIzaSyCFgu0AFYbiGJ-zRh0aAd4UKfbQb7ci1Us</string>
+    <string name="your_web_client_id">91863989930-r33tdk7l88vlepurejm6aamnsglk8ogt.apps.googleusercontent.com</string>
+
+    <string name="title_dashboard">Dasbor</string>
+    <string name="title_notifications">Notifikasi</string>
+    <string name="menu">Menu</string>
+    <string name="welcome">Selamat datang,</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="lets_find">Ayo, \n temukan jurusan yang cocok dengan \n minat dan bakatmu.</string>
+
+    // user
+    <string name="register">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="login_input">Masuk :</string>
+    <string name="signup">Daftar</string>
+    <string name="sign_up">Daftar</string>
+    <string name="username">Nama Pengguna</string>
+    <string name="email">Email</string>
+    <string name="email_hint">Email/Nama Pengguna</string>
+    <string name="password_input">Kata Sandi :</string>
+    <string name="password_hint">Kata Sandi (8–12 Karakter)</string>
+    <string name="password">Kata Sandi</string>
+    <string name="reset_password">Atur Ulang Kata Sandi</string>
+    <string name="havent_account_yet">Belum punya akun?</string>
+    <string name="have_account">Sudah punya akun?</string>
+    <string name="sub_text">Teks Sub</string>
+
+    <string name="name">Nama</string>
+    <string name="greeting">Halo %1$s,</string>
+    <string name="logout">Keluar</string>
+    <string name="title_path">Jalur</string>
+    <string name="title_career">Karir</string>
+    <string name="discussion">Diskusi</string>
+    <string name="Lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="title_test">Ujian</string>
+    <string name="title_signup_page">Ayo daftar dulu!</string>
+    <string name="sign_out">Keluar</string>
+    <string name="select_button">Pilih</string>
+    <string name="icon_description">Deskripsi Ikon</string>
+    // about us
+    <string name="aboutUsDesc">Proyek ini bertujuan untuk menjembatani kesenjangan antara minat siswa SMA dan pengambilan keputusan yang berbasis informasi. Melalui penilaian canggih dan rekomendasi yang disesuaikan, kami berencana untuk memberi siswa alat dan wawasan yang diperlukan untuk mengejar jalur akademik dan karir yang memuaskan.</string>
+    <string name="aboutUsSpecThx">Platform ini adalah hasil dari banyak jam kerja keras, kreativitas, dan kolaborasi. Kami bertujuan untuk memberikan nilai bagi hidup Anda, dan kami berharap Anda menikmati menjelajahi apa yang telah kami bangun.</string>
+    <string name="aboutUsSpecThx2">Terima kasih yang tulus atas dukungan dan kepercayaan Anda dalam perjalanan kami. Dukungan Anda menginspirasi kami untuk terus memperbaiki dan berusaha untuk keunggulan.\nTunggu pembaruan menarik dan fitur baru saat kami terus tumbuh dan berkembang!\nDengan rasa terima kasih,</string>
+    <string name="about_us">Tentang Kami</string>
+    <string name="project_team">Project Team</string>
+    <string name="project_lead">Berlian Aji Nur Khairi - Project Lead</string>
+    <string name="dev_lead">Marcello Jayekto - Mobile Dev Lead</string>
+    <string name="ml_lead">Muhammad Arief Rachman - ML Lead</string>
+    <string name="resource_manager">Na’imatul Lu’lu’a - Resource Manager</string>
+    <string name="github_and_repository_manager">Florencia Yang - Github And Repository Manager</string>
+    <string name="cloud_comp_lead">M. Naufal Rafy G - Cloud Comp Lead</string>
+    <string name="resource_manager_2">Geta Gabriela Merru - Resource Manager</string>
+    // chatbot
+    <string name="user_response">Tanggapan Pengguna</string>
+    <string name="delete_chat">Hapus Obrolan</string>
+    <string name="gemini_ai">Gemini AI</string>
+    <string name="ask_me">Tanyakan apa saja</string>
+    <string name="clear_image">Bersihkan Gambar</string>
+    <string name="ask">Tanyakan</string>
+    //detailAct
+    <string name="profile_picture">Foto Profil</string>
+    <string name="skill_needed">Keterampilan yang Dibutuhkan:</string>
+    <string name="list_abc">- ABC\n- BCD</string>
+    <string name="universitas">Universitas:</string>
+    <string name="career_jobs">Karir/Pekerjaan:</string>
+    <string name="article">Artikel:</string>
+    <string name="tips">Tips:</string>
+
+    // mainAct
+    <string name="compare">Bandingkan</string>
+    <string name="chatbot">Chatbot</string>
+    // homeFrag
+    <string name="popular_majors">Jurusan Populer</string>
+    <string name="civil_engineering">Teknik Sipil</string>
+    <string name="nursing">Keperawatan</string>
+    <string name="computer_science">Ilmu Komputer</string>
+    // Quiz
+    <string name="value_input">Input Nilai</string>
+    <string name="enter_value">Ayo, masukkan nilaimu</string>
+    <string name="start_test">Mulai Ujian</string>
+    <string name="questions">Pertanyaan muncul di sini</string>
+    <string name="a">Opsi A</string>
+    <string name="b">Opsi B</string>
+    <string name="c">Opsi C</string>
+    <string name="d">Opsi D</string>
+    <string name="back">Kembali</string>
+    <string name="next">Berikutnya</string>
+    <string name="end_test">Selesai Ujian</string>
+    <string name="want_start_test">Apakah kamu yakin ingin memulai ujian?</string>
+    <string name="cancel">Batalkan</string>
+    <string name="start">Mulai</string>
+
+    <string name="show_questions">Tampilkan Pertanyaan</string>
+
+    <string name="input">Input</string>
+    <string name="quiz_1">Kuis 1</string>
+    <string name="take">Ambil</string>
+    <string name="quiz_2">Kuis 2</string>
+    <string name="quiz_3">Kuis 3</string>
+    <string name="quiz_4">Kuis 4</string>
+    <string name="interest">Minat</string>
+    <string name="fill">Isi</string>
+    // Type
+    <string name="english">Bahasa Inggris</string>
+    <string name="chemistry">Kimia</string>
+    <string name="physics">Fisika</string>
+    <string name="biology">Biologi</string>
+    <string name="math">Matematika</string>
+    // new
+    <string name="write_something">Tulis sesuatu...</string>
+    <string name="write_something_2">Tulis sesuatu lagi...</string>
+    <string name="please_answer">Harap Jawab Pertanyaan di Bawah Ini</string>
+    <string name="_1_problem_solving">1. Apakah kamu suka memecahkan masalah?</string>
+    // agree
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="previous">Sebelumnya</string>
+    <string name="continuee">Lanjutkan</string>
+    <string name="send">Kirim</string>
+    <string name="submit">Kirimkan</string>
+    <string name="done">Selesai</string>
+    <string name="save">Simpan</string>
+    <string name="recommended">Direkomendasikan</string>
+    <string name="prediction_result">Hasil prediksi akan muncul di sini</string>
+    // rules
+    <string name="quiz_rules">Aturan Kuis</string>
+    <string name="the_rules">1. Kuis terdapat 5 pertanyaan.\n2. Jawab secepat mungkin.\n3. Anda bisa melewati pertanyaan, tetapi akan kehilangan poin.\n4. Tidak boleh ada bantuan eksternal.</string>
+    <string name="take_the_test">Ikuti ujian untuk menemukan jurusan yang sesuai dengan minat dan kemampuanmu</string>
+    <string name="history">Riwayat</string>
+    <string name="check_results">Periksa Hasil</string>
+    <string name="date">2024-12-09</string>
+    <string name="prediction_example">Prediksi: Contoh</string>
+    <string name="p">1</string>
+    <string name="item_subtitle">Subjudul Item</string>
+    <string name="item_title">Judul Item</string>
+    <string name="my_profile">Profil Saya</string>
+    <string name="privacy_and_security">Privasi dan Keamanan</string>
+    <string name="theme">Tema</string>
+    <string name="language">Bahasa</string>
+    <string name="version_app">V 1.0</string>
+    <string name="note">Catatan</string>
+    <string name="your_top_major_predict">Top Prediksi Jurusan Kamu</string>
+
+
+</resources>

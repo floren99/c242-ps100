@@ -10,11 +10,13 @@ import com.mcaps.mmm.data.repository.ApiUserRepository
 import com.mcaps.mmm.data.repository.MajorRepository
 import com.mcaps.mmm.data.repository.PredictRepository
 import com.mcaps.mmm.data.repository.QuestionPrefRepository
+import com.mcaps.mmm.data.repository.UserDataRepository
 import com.mcaps.mmm.data.repository.UserRepository
 import com.mcaps.mmm.di.Injection
 import com.mcaps.mmm.view.auth.login.LoginViewModel
 import com.mcaps.mmm.view.auth.register.RegisterViewModel
 import com.mcaps.mmm.view.auth.reset.ResetPassViewModel
+import com.mcaps.mmm.view.dashboard.home.HomeViewModel
 import com.mcaps.mmm.view.dashboard.path.PathViewModel
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.question.QuizViewModel
@@ -28,7 +30,8 @@ class ViewModelFactory(
     private val questionPrefRepository: QuestionPrefRepository? = null,
     private val questionRepository: QuestionRepository? = null,
     private val predictRepository: PredictRepository? = null,
-    private val testPreference: TestPreference? = null
+    private val testPreference: TestPreference? = null,
+    private val userDataRepository: UserDataRepository? = null
 
 ) : ViewModelProvider.NewInstanceFactory() {
 
@@ -54,7 +57,10 @@ class ViewModelFactory(
                 QuizViewModel(questionPrefRepository!!, questionRepository!!) as T
             }
             modelClass.isAssignableFrom(TestViewModel::class.java) -> {
-                TestViewModel(predictRepository!!, testPreference!!) as T
+                TestViewModel(predictRepository!!, testPreference!!, userDataRepository!!) as T
+            }
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                HomeViewModel(userRepository!!) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -75,7 +81,8 @@ class ViewModelFactory(
                     val questionRepository = QuestionRepository(questionPrefRepository)
                     val predictRepository = Injection.providePredictRepository()
                     val testPreference = TestPreference.getInstance(context.dataStore)
-                    INSTANCE = ViewModelFactory(pref, apiUserRepository, userRepository, majorRepository, questionPrefRepository, questionRepository, predictRepository, testPreference)
+                    val userDataRepository = Injection.provideUserDataRepository(context)
+                    INSTANCE = ViewModelFactory(pref, apiUserRepository, userRepository, majorRepository, questionPrefRepository, questionRepository, predictRepository, testPreference, userDataRepository)
                 }
             }
             return INSTANCE as ViewModelFactory

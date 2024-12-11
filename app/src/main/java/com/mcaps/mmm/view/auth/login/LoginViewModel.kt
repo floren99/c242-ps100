@@ -60,6 +60,10 @@ class LoginViewModel(private val apiRepository: ApiUserRepository, private val r
         }
     }
 
+    fun getUsername(): String? {
+        return _loginResponse.value?.loginResult?.username
+    }
+
     fun saveSession(user: UserModel) {
         viewModelScope.launch {
             repository.saveSession(user)

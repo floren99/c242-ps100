@@ -1,15 +1,17 @@
 package com.mcaps.mmm.view.menu.profile
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.mcaps.mmm.R
+import com.mcaps.mmm.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityProfileBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile)
+        binding = ActivityProfileBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.usernameText.text = intent.getStringExtra("username")
     }
 }

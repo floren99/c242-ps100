@@ -10,6 +10,8 @@
     <color name="gray">#A4A4A4</color>
     <color name="red">#E86464</color>
     <color name="invisible">#00FFFFFF</color>
+    <color name="shape1">#7BB1E3E9</color>
+    <color name="shape2">#0DA0AA</color>
     <color name="green_light">#113D56</color>
 
 
@@ -43,4 +45,6 @@
 
     <color name="colorAnswered">#4CAF50</color>
     <color name="colorNotAnswered">#929292</color>
+
+    <color name="colorPrimary2">#EA9E33</color>
 </resources>
