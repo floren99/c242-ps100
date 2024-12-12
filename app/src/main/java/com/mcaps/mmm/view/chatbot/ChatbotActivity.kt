@@ -2,6 +2,7 @@ package com.mcaps.mmm.view.chatbot
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.KeyEvent
@@ -103,6 +104,16 @@ class ChatbotActivity : AppCompatActivity() {
 
             val userPrompt = editText.text.toString()
             editText.setText("")
+
+            if (userPrompt.equals("MMM", ignoreCase = true) || userPrompt.equals("MatchMyMajor", ignoreCase = true)) {
+                val matchMyMajorInfo = "MatchMyMajor is an application to help high school students choose suitable college majors to avoid issues with mismatches in interests and capabilities."
+                val matchMyMajorImageUri = Uri.parse("android.resource://" + packageName + "/" + R.drawable.logo_app3).toString()
+                val aiResponse = DataResponse(1, matchMyMajorInfo, matchMyMajorImageUri)
+                responseData.add(0, aiResponse)
+                adapter.notifyItemInserted(0)
+                recyclerView.post { recyclerView.scrollToPosition(0) }
+                return
+            }
 
             val userImageUri = if (imageUri.isBlank()) "" else imageUri
 

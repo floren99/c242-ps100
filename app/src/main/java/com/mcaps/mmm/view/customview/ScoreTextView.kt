@@ -18,7 +18,7 @@ class ScoreTextView : AppCompatEditText {
             if (source.matches(Regex("[0-9]*"))) {
                 source
             } else {
-                ""
+                "0"
             }
         })
     }

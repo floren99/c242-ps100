@@ -1,6 +1,7 @@
 package com.mcaps.mmm.view.dashboard.test.history
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -24,9 +25,12 @@ class HistoryTestActivity : AppCompatActivity() {
 
         binding.rvHistory.layoutManager = LinearLayoutManager(this)
 
+
         testViewModel.userHistory.observe(this, Observer { userDataList ->
-            userDataList?.let {
-                historyAdapter = HistoryAdapter(it.asReversed())
+            if (userDataList.isNullOrEmpty()) {
+                Toast.makeText(this, "History Empty", Toast.LENGTH_SHORT).show()
+            } else {
+                historyAdapter = HistoryAdapter(userDataList.asReversed())
                 binding.rvHistory.adapter = historyAdapter
             }
         })

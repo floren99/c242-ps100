@@ -8,33 +8,25 @@
     android:background="@color/colorBackground"
     tools:context=".view.chatbot.ChatbotActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="20dp"
-        tools:ignore="MissingConstraints">
+    <ImageView
+        android:id="@+id/shape1"
+        android:layout_width="261dp"
+        android:layout_height="250dp"
+        android:src="@drawable/shape1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="-50dp"
+        android:layout_marginStart="200dp" />
 
-        <ImageView
-            android:id="@+id/shape1"
-            android:layout_width="261dp"
-            android:layout_height="250dp"
-            android:src="@drawable/shape1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="-50dp"
-            android:layout_marginStart="200dp" />
-
-        <ImageView
-            android:id="@+id/shape2"
-            android:layout_width="258dp"
-            android:layout_height="150dp"
-            android:src="@drawable/shape1"
-            app:layout_constraintTop_toBottomOf="@+id/shape1"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="270dp"
-            android:layout_marginLeft="-130dp"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/shape2"
+        android:layout_width="258dp"
+        android:layout_height="150dp"
+        android:src="@drawable/shape1"
+        app:layout_constraintTop_toBottomOf="@+id/shape1"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="270dp"
+        android:layout_marginStart="-130dp"/>
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/app_bar"

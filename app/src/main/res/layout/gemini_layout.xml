@@ -17,6 +17,8 @@
             android:id="@+id/iv_gemini_response"
             android:layout_width="120dp"
             android:layout_height="120dp"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginVertical="16dp"
             android:visibility="gone"
             android:src="@drawable/ic_launcher_background"
             android:layout_marginTop="16dp"/>

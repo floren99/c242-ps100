@@ -19,7 +19,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:alpha="0"
         tools:alpha="100"
-        android:src="@drawable/logo_app2"/>
+        android:src="@drawable/logo_app3"/>
 
     <View
         android:id="@+id/lines1"

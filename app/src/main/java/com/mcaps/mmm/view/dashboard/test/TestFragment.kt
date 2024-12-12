@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -131,6 +132,14 @@ class TestFragment : Fragment() {
         }
 
         binding.buttonCek.setOnClickListener {
+            val scores = sharedViewModel.scores.value ?: emptyList()
+            val minat = sharedViewModel.minat.value ?: emptyList()
+
+            if (scores.isEmpty() || minat.isEmpty()) {
+                Toast.makeText(requireContext(), "Fill at least Scores and Interest", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             val finalInput = sharedViewModel.getFinalInput()
             val request = PredictRequest(finalInput)
 
