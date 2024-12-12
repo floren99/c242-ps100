@@ -3,7 +3,6 @@ package com.mcaps.mmm.view.dashboard.path
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -58,7 +57,6 @@ class PathAdapter(private val context: Context) :
             Glide.with(binding.root.context)
                 .load(firstImage)
                 .into(binding.imgItemPhoto)
-            Log.d("PathAdapter", "Binding path: ${path.title}")
         }
 
         companion object {

@@ -11,6 +11,7 @@ import androidx.lifecycle.lifecycleScope
 import com.mcaps.mmm.R
 import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.databinding.FragmentTestBinding
+import com.mcaps.mmm.view.LoadingDialogFragment
 import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.dashboard.ResultFragment
 import com.mcaps.mmm.view.dashboard.test.history.HistoryTestActivity

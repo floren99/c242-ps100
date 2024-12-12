@@ -1,6 +1,5 @@
 package com.mcaps.mmm.view.dashboard.test
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -78,14 +77,12 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
         viewModelScope.launch {
             testPreference.saveScores(newScores)
         }
-        Log.d("TestViewModel", "Scores updated: $newScores")
     }
     fun updateMinat(newMinat: List<Int>) {
         _minat.value = newMinat
         viewModelScope.launch {
             testPreference.saveMinat(newMinat)
         }
-        Log.d("TestViewModel", "Minat updated: $newMinat")
     }
 
     fun saveQuiz(quizIndex: Int, value: Int) {
@@ -109,12 +106,7 @@ class TestViewModel (private val predictRepository: PredictRepository, private v
         val quizList = listOf(_quiz1.value, _quiz2.value, _quiz3.value, _quiz4.value).mapNotNull { it }
         val minatList = _minat.value ?: emptyList()
 
-        Log.d("TestViewModel", "Scores: $scoresList")
-        Log.d("TestViewModel", "Quizzes: $quizList")
-        Log.d("TestViewModel", "Minat: $minatList")
-
         answers = scoresList + quizList + minatList
-        Log.d("TestViewModel", "Final input: $answers")
 
         return answers
     }

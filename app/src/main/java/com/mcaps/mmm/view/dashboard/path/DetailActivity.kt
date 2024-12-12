@@ -3,7 +3,6 @@ package com.mcaps.mmm.view.dashboard.path
 import android.os.Bundle
 import android.text.Html
 import android.text.method.LinkMovementMethod
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.mcaps.mmm.data.api.response.MajorDataItem
@@ -23,8 +22,6 @@ class DetailActivity : AppCompatActivity() {
         val pathData: MajorDataItem? = intent.getParcelableExtra("path_data")
 
         if (pathData != null) {
-            Log.d("DetailActivity", "Data received: $pathData")
-
             binding.tvDetailName.text = pathData.title ?: "N/A"
             binding.tvDetailDescription.text = pathData.description ?: "No description available"
             binding.tvDetailTips.text = pathData.tips ?: "No tips available"
@@ -80,7 +77,6 @@ class DetailActivity : AppCompatActivity() {
             }
         } else {
             startPostponedEnterTransition()
-            Log.e("DetailActivity", "No data received from intent")
         }
     }
 }

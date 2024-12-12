@@ -16,10 +16,6 @@ class TestPreference private constructor(private val dataStore: DataStore<Prefer
 
     private val SCORES_KEY = stringPreferencesKey("scores")
     private val MINAT_KEY = stringPreferencesKey("minat")
-    private val QUIZ1_KEY = intPreferencesKey("quiz1")
-    private val QUIZ2_KEY = intPreferencesKey("quiz2")
-    private val QUIZ3_KEY = intPreferencesKey("quiz3")
-    private val QUIZ4_KEY = intPreferencesKey("quiz4")
 
     suspend fun saveScores(scores: List<Int>) {
         val scoresString = scores.joinToString(",")

@@ -15,7 +15,7 @@ object ApiConfig {
         } else {
             BuildConfig.API_BASE_URL
         }
-        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.NONE)
 
         val client = OkHttpClient.Builder()
             .connectTimeout(60, TimeUnit.SECONDS)
@@ -29,8 +29,6 @@ object ApiConfig {
                 if (!token.isNullOrEmpty()) {
                     requestBuilder.addHeader("Authorization", "Bearer $token")
                 }
-
-                Log.d("ApiConfig", "Using token: $token")
                 chain.proceed(requestBuilder.build())
             }
             .build()

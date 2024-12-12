@@ -1,6 +1,5 @@
 package com.mcaps.mmm.view.dashboard.path
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -32,29 +31,8 @@ class PathViewModel (private val majorRepository: MajorRepository): ViewModel() 
                 _isLoading.value = false
                 if (response.isSuccessful) {
                     _pathList.value = response.body()?.data
-                    Log.d("PathViewModel", "Stories fetched: ${response.body()?.data}")
                 } else {
-                    _errorMessage.value = "Failed to load stories"
-                }
-            }
-
-            override fun onFailure(call: Call<MajorResponse>, t: Throwable) {
-                _isLoading.value = false
-                _errorMessage.value = t.message
-            }
-        })
-    }
-
-    suspend fun getMajor(id: Int) {
-        _isLoading.value = true
-        majorRepository.getMajorById(id).enqueue(object : Callback<MajorResponse> {
-            override fun onResponse(call: Call<MajorResponse>, response: Response<MajorResponse>) {
-                _isLoading.value = false
-                if (response.isSuccessful) {
-                    _major.value = response.body()?.data?.first()
-                    Log.d("PathViewModel", "Stories fetched: ${response.body()?.data}")
-                } else {
-                    _errorMessage.value = "Failed to load stories"
+                    _errorMessage.value = "Failed to load items"
                 }
             }
 

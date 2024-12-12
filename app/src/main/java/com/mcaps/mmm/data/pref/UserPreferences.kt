@@ -1,7 +1,6 @@
 package com.mcaps.mmm.data.pref
 
 import android.content.Context
-import android.util.Log
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -22,7 +21,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             preferences[IS_LOGIN_KEY] = true
             preferences[USERNAME_KEY] = user.username
         }
-        Log.d("UserPreference", "Session saved: Email=${user.email}, Token=${user.token}, IsLogin=${true}")
     }
 
     fun getSession(): Flow<UserModel> {
@@ -39,7 +37,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     suspend fun logout() {
         dataStore.edit { preferences ->
             preferences.clear()
-            Log.d("UserPreference", "Session cleared")
         }
     }
 
@@ -48,7 +45,6 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
             preferences.remove(NOTE_TOP_KEY)
             preferences.remove(NOTE_BOTTOM_KEY)
         }
-        Log.d("UserPreference", "Notepad data cleared")
     }
 
     suspend fun saveNotepadData(topNote: String, bottomNote: String) {
