@@ -3,24 +3,20 @@ package com.mcaps.mmm.view.menu
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
-import android.view.View
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.switchmaterial.SwitchMaterial
-import com.mcaps.mmm.R
 import com.mcaps.mmm.data.pref.SettingPreferences
 import com.mcaps.mmm.data.pref.themeDataStore
-import com.mcaps.mmm.databinding.ActivityMainBinding
 import com.mcaps.mmm.databinding.ActivityMenuBinding
 import com.mcaps.mmm.view.MainViewModel
 import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.auth.login.LoginActivity
 import com.mcaps.mmm.view.auth.login.LoginViewModel
-import com.mcaps.mmm.view.chatbot.ChatbotActivity
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
+import com.mcaps.mmm.view.menu.privacy.PrivacyActivity
 import com.mcaps.mmm.view.menu.profile.ProfileActivity
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
@@ -82,6 +78,11 @@ class MenuActivity : AppCompatActivity() {
 
         binding.language.setOnClickListener {
             val intent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            startActivity(intent)
+        }
+
+        binding.privacySettings.setOnClickListener {
+            val intent = Intent(this, PrivacyActivity::class.java)
             startActivity(intent)
         }
 

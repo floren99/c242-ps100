@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.kotlin.android)
     id("kotlin-kapt")
     id ("kotlin-parcelize")
-    //id("com.google.gms.google-services") version "4.4.2"
 }
 
 android {
@@ -17,6 +16,9 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        buildConfigField("String", "API_BASE_URL", "\"${findProperty("API_BASE_URL") ?: "https://default-url.com"}\"")
+        buildConfigField("String", "ML_API_URL", "\"${findProperty("ML_API_URL") ?: "https://ml-url.com"}\"")
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -28,6 +30,12 @@ android {
                 "proguard-rules.pro"
             )
         }
+        getByName("debug") {
+            buildConfigField("String", "API_KEY", "\"${findProperty("API_KEY") ?: "default_api_key"}\"")
+        }
+        getByName("release") {
+            buildConfigField("String", "API_KEY", "\"${findProperty("API_KEY") ?: "default_api_key"}\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -38,6 +46,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
         //noinspection DataBindingWithoutKapt
         dataBinding = true
     }

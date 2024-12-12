@@ -43,6 +43,29 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         }
     }
 
+    suspend fun clearNotepadData() {
+        dataStore.edit { preferences ->
+            preferences.remove(NOTE_TOP_KEY)
+            preferences.remove(NOTE_BOTTOM_KEY)
+        }
+        Log.d("UserPreference", "Notepad data cleared")
+    }
+
+    suspend fun saveNotepadData(topNote: String, bottomNote: String) {
+        dataStore.edit { preferences ->
+            preferences[NOTE_TOP_KEY] = topNote
+            preferences[NOTE_BOTTOM_KEY] = bottomNote
+        }
+    }
+
+    fun getNotepadData(): Flow<Pair<String, String>> {
+        return dataStore.data.map { preferences ->
+            val topNote = preferences[NOTE_TOP_KEY] ?: ""
+            val bottomNote = preferences[NOTE_BOTTOM_KEY] ?: ""
+            Pair(topNote, bottomNote)
+        }
+    }
+
     companion object {
         @Volatile
         private var INSTANCE: UserPreference? = null
@@ -51,6 +74,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         private val TOKEN_KEY = stringPreferencesKey("token")
         private val IS_LOGIN_KEY = booleanPreferencesKey("isLogin")
         private val USERNAME_KEY = stringPreferencesKey("username")
+
+        private val NOTE_TOP_KEY = stringPreferencesKey("note_top")
+        private val NOTE_BOTTOM_KEY = stringPreferencesKey("note_bottom")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
             return INSTANCE ?: synchronized(this) {

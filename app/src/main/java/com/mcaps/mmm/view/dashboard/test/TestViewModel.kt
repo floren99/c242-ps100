@@ -6,14 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mcaps.mmm.data.api.response.PredictResponse
-import com.mcaps.mmm.data.local.dao.UserDataDao
 import com.mcaps.mmm.data.local.entity.UserData
 import com.mcaps.mmm.data.pref.PredictRequest
 import com.mcaps.mmm.data.pref.TestPreference
-import com.mcaps.mmm.data.repository.MajorRepository
 import com.mcaps.mmm.data.repository.PredictRepository
 import com.mcaps.mmm.data.repository.UserDataRepository
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import java.util.Date
 

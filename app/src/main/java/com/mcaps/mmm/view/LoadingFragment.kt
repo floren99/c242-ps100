@@ -4,10 +4,8 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.mcaps.mmm.databinding.FragmentLoadingBinding
-import com.mcaps.mmm.databinding.FragmentRegisterBinding
 
 class LoadingDialogFragment : DialogFragment() {
     private var _binding: FragmentLoadingBinding? = null

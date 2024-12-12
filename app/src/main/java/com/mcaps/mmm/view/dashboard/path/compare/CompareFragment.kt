@@ -1,19 +1,16 @@
 package com.mcaps.mmm.view.dashboard.path.compare
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mcaps.mmm.R
 import com.mcaps.mmm.data.api.response.MajorDataItem
 import com.mcaps.mmm.databinding.FragmentCompareBinding
-import com.mcaps.mmm.databinding.FragmentPathBinding
 import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.dashboard.path.PathViewModel
 
@@ -46,8 +43,8 @@ class CompareFragment : BottomSheetDialogFragment() {
         pathViewModel.pathList.observe(viewLifecycleOwner) { majorList ->
             majors = majorList
             val titles = majorList.map { it.title ?: "Unknown" }
-            val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, titles)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+            val adapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, titles)
+            adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
             binding.spinnerMajor1.adapter = adapter
             binding.spinnerMajor2.adapter = adapter
         }

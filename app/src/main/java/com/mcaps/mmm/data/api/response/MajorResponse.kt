@@ -3,7 +3,6 @@ package com.mcaps.mmm.data.api.response
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-import kotlinx.parcelize.RawValue
 
 data class MajorResponse(
 

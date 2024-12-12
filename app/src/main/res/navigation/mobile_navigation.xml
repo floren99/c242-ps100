@@ -25,8 +25,8 @@
         tools:layout="@layout/fragment_path" />
 
     <fragment
-        android:id="@+id/navigation_discussion"
-        android:name="com.mcaps.mmm.view.dashboard.discussion.DiscussionFragment"
+        android:id="@+id/navigation_note"
+        android:name="com.mcaps.mmm.view.dashboard.notepad.NotePadFragment"
         android:label="Note"
-        tools:layout="@layout/fragment_path" />
+        tools:layout="@layout/fragment_notepad" />
 </navigation>

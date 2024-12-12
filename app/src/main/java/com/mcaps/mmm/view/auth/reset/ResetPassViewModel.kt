@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mcaps.mmm.data.api.response.RegisterResponse
 import com.mcaps.mmm.data.api.response.ResetPassResponse
 import com.mcaps.mmm.data.repository.ApiUserRepository
 import kotlinx.coroutines.launch

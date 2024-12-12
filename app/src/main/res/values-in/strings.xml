@@ -140,10 +140,29 @@
     <string name="my_profile">Profil Saya</string>
     <string name="privacy_and_security">Privasi dan Keamanan</string>
     <string name="theme">Tema</string>
-    <string name="language">Bahasa</string>
+    <string name="language">Bahasa (En/Id)</string>
     <string name="version_app">V 1.0</string>
     <string name="note">Catatan</string>
     <string name="your_top_major_predict">Top Prediksi Jurusan Kamu</string>
+    <string name="compare_skills">Banding Kemampuan</string>
+    <string name="compare_career_prospects">Banding Prospek Kerja</string>
+    <string name="select_major_2">Pilih Jurusan 2</string>
+    <string name="select_major_1">Pilih Jurusan 1</string>
+    <string name="clear" />
 
-
+    <string name="privacy">Kami menghargai privasi Anda. Kebijakan privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi pribadi Anda saat Anda menggunakan aplikasi kami.\nKami dapat mengumpulkan informasi pribadi seperti alamat email, informasi perangkat, dan data penggunaan Anda. Informasi ini digunakan untuk meningkatkan kinerja aplikasi kami, mempersonalisasi pengalaman Anda, dan menyediakan layanan yang relevan. Kami dapat membagikan data Anda dengan penyedia layanan pihak ketiga seperti Google Cloud Platform untuk memfasilitasi fungsionalitas aplikasi. Data Anda dilindungi oleh langkah-langkah keamanan standar industri. Anda memiliki hak untuk mengakses, memperbaiki, atau menghapus data pribadi Anda. Kami dapat memperbarui kebijakan privasi ini dari waktu ke waktu. Silakan hubungi kami di E-Mail kami untuk pertanyaan terkait privasi.</string>
+    <string name="email_contact1">Kontak E-Mail : freezeian60@gmail.com</string>
+    <string name="locationUs">Surabaya, Jawa Timur, Indonesia</string>
+    <string name="user_example_com">user@example.com</string>
+    <string name="profile_picture_desc">Profile Picture</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="congratulations">Selamat!</string>
+    <string name="skills_comparison">Perbandingan Skills</string>
+    <string name="title_1">Title 1</string>
+    <string name="content_1">Content 1</string>
+    <string name="title_2">Title 2</string>
+    <string name="content_2">Content 2</string>
+    <string name="arrow_icon">Arrow Icon</string>
+    <string name="loading">Memuat</string>
+    <string name="dot">. . .</string>
 </resources>

@@ -1,14 +1,11 @@
 package com.mcaps.mmm.view.dashboard.path.compare
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.mcaps.mmm.R
 import com.mcaps.mmm.data.api.response.MajorDataItem
-import com.mcaps.mmm.databinding.FragmentCompareBinding
 import com.mcaps.mmm.databinding.FragmentComparisonDialogBinding
 
 class ComparisonDialogFragment : DialogFragment() {

@@ -17,6 +17,15 @@ class UserRepository private constructor(
 
     suspend fun logout() {
         userPreference.logout()
+        userPreference.clearNotepadData()
+    }
+
+    suspend fun saveNotepadData(topNote: String, bottomNote: String) {
+        userPreference.saveNotepadData(topNote, bottomNote)
+    }
+
+    fun getNotepadData(): Flow<Pair<String, String>> {
+        return userPreference.getNotepadData()
     }
 
     companion object {

@@ -10,12 +10,8 @@ import android.os.Looper
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.mcaps.mmm.R
 import com.mcaps.mmm.databinding.ActivitySplashBinding
 import com.mcaps.mmm.view.MainActivity
 import com.mcaps.mmm.view.ViewModelFactory
@@ -97,5 +93,4 @@ class SplashActivity : AppCompatActivity() {
             start()
         }
     }
-
 }

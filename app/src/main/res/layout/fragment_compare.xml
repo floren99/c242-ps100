@@ -39,7 +39,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Major 1"
+            android:text="@string/select_major_1"
             android:fontFamily="@font/poppins_semibold"/>
 
         <Spinner
@@ -49,11 +49,10 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins_semibold"/>
 
-        <!-- Dropdown for the second major -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Major 2"
+            android:text="@string/select_major_2"
             android:fontFamily="@font/poppins_semibold"/>
 
         <Spinner
@@ -70,7 +69,7 @@
             android:backgroundTint="@color/colorSecondary"
             android:textColor="@color/colorOnSecondary"
             android:fontFamily="@font/poppins_semibold"
-            android:text="Compare Skills" />
+            android:text="@string/compare_skills" />
 
         <Button
             android:id="@+id/btnCompareJobs"
@@ -80,6 +79,6 @@
             android:fontFamily="@font/poppins_semibold"
             android:backgroundTint="@color/colorSecondary"
             android:textColor="@color/colorOnSecondary"
-            android:text="Compare Career Prospects" />
+            android:text="@string/compare_career_prospects" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

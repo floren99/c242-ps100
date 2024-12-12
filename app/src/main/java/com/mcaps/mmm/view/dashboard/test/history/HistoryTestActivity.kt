@@ -1,19 +1,11 @@
 package com.mcaps.mmm.view.dashboard.test.history
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mcaps.mmm.R
-import com.mcaps.mmm.data.pref.TestPreference
-import com.mcaps.mmm.data.repository.PredictRepository
-import com.mcaps.mmm.data.repository.UserDataRepository
 import com.mcaps.mmm.databinding.ActivityHistoryTestBinding
-import com.mcaps.mmm.view.MainViewModel
 import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
 

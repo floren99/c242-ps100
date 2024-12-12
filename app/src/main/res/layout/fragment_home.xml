@@ -80,7 +80,6 @@
             android:src="@drawable/logo_app2"
             android:background="@drawable/circle_shape"
             android:scaleType="centerInside"
-            android:clipToOutline="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -327,7 +326,7 @@
                     android:layout_height="25dp"
                     android:background="@drawable/circle_button"
                     android:layout_gravity="center_vertical|end"
-                    android:contentDescription="Arrow Icon"
+                    android:contentDescription="@string/arrow_icon"
                     android:src="@drawable/ic_keyboard_arrow_right_24" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

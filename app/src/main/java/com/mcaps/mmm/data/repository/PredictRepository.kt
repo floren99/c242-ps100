@@ -3,7 +3,6 @@ package com.mcaps.mmm.data.repository
 import com.mcaps.mmm.data.api.response.PredictResponse
 import com.mcaps.mmm.data.api.retrofit.ApiService
 import com.mcaps.mmm.data.pref.PredictRequest
-import com.mcaps.mmm.data.pref.UserPreference
 
 class PredictRepository private constructor(
     private val apiService: ApiService,

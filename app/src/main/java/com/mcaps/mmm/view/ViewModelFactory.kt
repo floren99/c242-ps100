@@ -20,6 +20,7 @@ import com.mcaps.mmm.view.dashboard.home.HomeViewModel
 import com.mcaps.mmm.view.dashboard.path.PathViewModel
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.question.QuizViewModel
+import com.mcaps.mmm.view.dashboard.notepad.NotePadViewModel
 import com.mcaps.mmm.view.question.repository.QuestionRepository
 
 class ViewModelFactory(
@@ -61,6 +62,9 @@ class ViewModelFactory(
             }
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(userRepository!!) as T
+            }
+            modelClass.isAssignableFrom(NotePadViewModel::class.java) -> {
+                NotePadViewModel(userRepository!!) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

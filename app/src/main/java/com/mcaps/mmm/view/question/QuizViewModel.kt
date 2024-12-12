@@ -72,10 +72,6 @@ class QuizViewModel(
         }
     }
 
-    fun getQuizResults(quizType: String): List<Question>? {
-        return quizResults[quizType]
-    }
-
     fun calculateResultPercentage(): Int {
         val totalQuestions = _questions.value?.size ?: 0
         val correctAnswers = _correctAnswersCount.value ?: 0

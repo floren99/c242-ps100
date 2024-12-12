@@ -4,18 +4,14 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.AlertDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.mcaps.mmm.R
-import com.mcaps.mmm.databinding.FragmentRegisterBinding
 import com.mcaps.mmm.databinding.FragmentResetPassBinding
 import com.mcaps.mmm.view.ViewModelFactory
-import com.mcaps.mmm.view.auth.register.RegisterViewModel
 
 class ResetPassFragment : BottomSheetDialogFragment() {
 

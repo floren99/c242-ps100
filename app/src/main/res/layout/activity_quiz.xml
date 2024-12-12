@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:gravity="left">
+                android:gravity="start">
 
                 <TextView
                     android:id="@+id/tvQuestion"
@@ -68,7 +68,7 @@
                     android:fontFamily="@font/poppins_regular"
                     android:textSize="14sp"
                     android:justificationMode="inter_word"
-                    android:gravity="left"/>
+                    android:gravity="start"/>
 
                 <!-- Answer Options -->
                 <RadioGroup
@@ -127,6 +127,7 @@
 
         <LinearLayout
             android:id="@+id/buttonLayout"
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -141,6 +142,7 @@
 
             <Button
                 android:id="@+id/btnBack"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
@@ -151,6 +153,7 @@
 
             <Button
                 android:id="@+id/btnNext"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -161,6 +164,7 @@
 
             <Button
                 android:id="@+id/btnEndTest"
+                style="?android:attr/buttonBarButtonStyle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

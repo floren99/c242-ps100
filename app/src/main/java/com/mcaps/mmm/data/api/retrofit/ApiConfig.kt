@@ -6,15 +6,16 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import com.mcaps.mmm.BuildConfig
 
 object ApiConfig {
     fun getApiService(tokenProvider: TokenProvider? = null, apiChoice: String? = null): ApiService {
-        var apiurl = "https://cc-api-91863989930.asia-southeast2.run.app"
-        if (apiChoice == "ml") {
-            apiurl = "https://ml-api-capstone-91863989930.asia-southeast2.run.app/"
+        val apiUrl = if (apiChoice == "ml") {
+            BuildConfig.ML_API_URL
+        } else {
+            BuildConfig.API_BASE_URL
         }
-        val loggingInterceptor =
-            HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val loggingInterceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
         val client = OkHttpClient.Builder()
             .connectTimeout(60, TimeUnit.SECONDS)
@@ -35,7 +36,7 @@ object ApiConfig {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(apiurl)
+            .baseUrl(apiUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()
@@ -43,7 +44,6 @@ object ApiConfig {
         return retrofit.create(ApiService::class.java)
     }
 }
-
 interface TokenProvider {
     fun getToken(): String?
 }

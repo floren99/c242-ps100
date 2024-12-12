@@ -24,6 +24,8 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.result.PickVisualMediaRequest
 import android.util.Log
+import com.mcaps.mmm.BuildConfig
+
 
 class ChatbotActivity : AppCompatActivity() {
 
@@ -96,7 +98,7 @@ class ChatbotActivity : AppCompatActivity() {
         if (editText.text.isNotBlank()) {
             val generativeModel = GenerativeModel(
                 modelName = "gemini-1.5-flash",
-                apiKey = getString(R.string.api_key)
+                apiKey = BuildConfig.API_KEY
             )
 
             val userPrompt = editText.text.toString()

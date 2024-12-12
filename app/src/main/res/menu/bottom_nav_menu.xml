@@ -19,7 +19,7 @@
         android:itemBackground="@drawable/icon_background_selector"/>
 
     <item
-        android:id="@+id/navigation_discussion"
+        android:id="@+id/navigation_note"
         android:icon="@drawable/ic_baseline_note_24"
         android:title="@string/note"
         android:itemBackground="@drawable/icon_background_selector"/>

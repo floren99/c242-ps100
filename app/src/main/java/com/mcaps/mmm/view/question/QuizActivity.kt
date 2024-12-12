@@ -2,29 +2,15 @@ package com.mcaps.mmm.view.question
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mcaps.mmm.R
-import com.mcaps.mmm.data.api.retrofit.ApiConfig
-import com.mcaps.mmm.data.repository.QuestionPrefRepository
 import com.mcaps.mmm.databinding.ActivityQuizBinding
 import com.mcaps.mmm.view.MainActivity
 import com.mcaps.mmm.view.ViewModelFactory
-import com.mcaps.mmm.view.dashboard.test.TestFragment
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
-import com.mcaps.mmm.view.question.repository.QuestionRepository
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class QuizActivity : AppCompatActivity() {
 

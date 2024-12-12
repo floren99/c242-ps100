@@ -18,12 +18,12 @@
             android:fontFamily="@font/poppins_semibold"
             android:textSize="18sp"
             android:textColor="@color/colorOnSecondary"
-            android:text="Skills Comparison" />
+            android:text="@string/skills_comparison" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="16dp"
+            android:paddingHorizontal="16dp"
             android:layout_marginBottom="8dp"
             android:orientation="vertical">
 
@@ -41,7 +41,7 @@
 
         <TextView
             android:id="@+id/tvCompareContentTitle"
-            android:text="Title 1"
+            android:text="@string/title_1"
             android:textColor="@color/colorOnPrimary"
             android:layout_width="wrap_content"
             android:fontFamily="@font/poppins_light"
@@ -51,7 +51,7 @@
             android:id="@+id/tvCompareContent"
             android:fontFamily="@font/poppins_light"
             android:textColor="@color/colorOnPrimary"
-            android:text="Content 1"
+            android:text="@string/content_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -77,7 +77,7 @@
             android:id="@+id/tvCompareContentTitle2"
             android:fontFamily="@font/poppins_light"
             android:textColor="@color/colorOnPrimary"
-            android:text="Title 2"
+            android:text="@string/title_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
@@ -85,7 +85,7 @@
             android:id="@+id/tvCompareContent2"
             android:fontFamily="@font/poppins_light"
             android:textColor="@color/colorOnPrimary"
-            android:text="Content 2"
+            android:text="@string/content_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
