@@ -1,6 +1,5 @@
 # Match My Major
-## Bangkit Team Information
-- **Team ID:** C242-PS100  
+## **Team ID:** C242-PS100  
 - **Team Members:**
   - **Machine Learning (ML):**
     - M320B4KX1545 – Florencia Yang – Universitas Surabaya – [Active]  
