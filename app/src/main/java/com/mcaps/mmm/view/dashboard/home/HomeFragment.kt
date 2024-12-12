@@ -11,6 +11,7 @@ import com.mcaps.mmm.databinding.FragmentHomeBinding
 import com.mcaps.mmm.view.ViewModelFactory
 import com.mcaps.mmm.view.dashboard.test.TestViewModel
 import com.mcaps.mmm.view.menu.MenuActivity
+import com.mcaps.mmm.view.menu.profile.ProfileActivity
 
 class HomeFragment : Fragment() {
     private val homeViewModel: HomeViewModel by lazy {
@@ -44,6 +45,12 @@ class HomeFragment : Fragment() {
             intent.putExtra("email", email)
             intent.putExtra("username", username)
             intent.putExtra("topPredict", topPredictValue)
+            startActivity(intent)
+        }
+
+        binding.profileHome.setOnClickListener{
+            val intent = Intent(activity, ProfileActivity::class.java)
+            intent.putExtra("username", username)
             startActivity(intent)
         }
 

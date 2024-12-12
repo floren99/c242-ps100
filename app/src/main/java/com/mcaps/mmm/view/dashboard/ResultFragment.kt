@@ -53,6 +53,10 @@ class ResultFragment : DialogFragment() {
 
         binding.textResult.text = result ?: "No prediction available"
         binding.imageResult.setImageResource(imageResId ?: R.drawable.ic_baseline_android_24)
+
+        binding.buttonClose.setOnClickListener{
+            dismiss()
+        }
     }
 
     override fun onStart() {

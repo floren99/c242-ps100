@@ -4,6 +4,7 @@
     <color name="colorPrimary">#113D56</color>
     <color name="colorPrimaryVariant">#6291B1</color>
     <color name="colorPrimaryDark">#B4CFE1</color>
+    <color name="brown">#59400A</color>
 
     <!-- Secondary Colors -->
     <color name="colorSecondary">#4D7F8F</color>
